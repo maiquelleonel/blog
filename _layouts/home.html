@@ -3,7 +3,7 @@ layout: default
 ---
 
 <section class="flex justify-center mt3">
-  <div class="mw8 w-100 pa3 pa4-ns">
+  <div class="mw8 w-100 ph2">
     <h3 class="f5 f4-ns fw3 mb0 pb2 bb b--light-gray">{{ site.data.theme.text.latest_articles | default: "Recent Posts" }}</h3>
 
     {% for post in site.posts limit: site.data.theme.text.post_limit %}
