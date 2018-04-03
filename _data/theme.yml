@@ -41,7 +41,7 @@ attribution: true
 # Show author bio
 author_bio        : true
 # Show post meta
-post_meta         : false
+post_meta         : true
 # Show post social sharing icons
 share_icons       : true
 # Show post categories & tags

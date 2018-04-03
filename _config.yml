@@ -8,7 +8,7 @@ description : "Meu blog sobre assuntos que gosto e repositório de coisas legais
 author      : "Maiquel Leonel"
 email       : maiquel@maiquelleonel.com.br
 baseurl     : "/" # the subpath of your site, e.g. /blog
-url         : "blog.maiquelleonel.com.br"
+url         : "http://blog.maiquelleonel.com.br"
 date_format : "%-d %b %Y"
 port        : 4000
 
