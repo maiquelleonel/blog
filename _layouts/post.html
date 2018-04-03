@@ -5,9 +5,6 @@ layout: default
 <main class="flex flex-column items-center">
   <article class="mw8 w-100 ph2">
     <header class="{% if page.post_meta == false %}mt5{% endif %}">
-    {% if site.data.theme.post_meta %}
-        {% include post_meta.html %}
-    {% endif %}
 
     {% unless page.header.layout == 'hero' %}
         <h1 class="f2 fw6 lh-title mb1">{{ page.title }}</h1>
@@ -15,6 +12,9 @@ layout: default
             <h2 class="f3 fw4 lh-title silver mv2">{{ page.subtitle }}</h2>
         {% endif %}
     {% endunless %}
+    {% if site.data.theme.post_meta %}
+    {% include post_meta.html %}
+    {% endif %}
     </header>
 
     <div class="mw8 w-100 f4 f3-ns fw3 lh-copy mb0">

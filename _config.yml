@@ -16,7 +16,7 @@ port        : 4000
 ################################
 # Theme Settings
 ################################
-theme       : jekyll-theme-hacker
+theme       : minimal-jekyll-theme
 permalink   : /:title/
 
 collections:
