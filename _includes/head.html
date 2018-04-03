@@ -11,7 +11,7 @@
 
   <!-- Atom Feed -->
   <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-  
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/minimal.css' | relative_url }}">
 
@@ -20,7 +20,7 @@
 
   <!-- Analytics -->
   {% if site.google_analytics and jekyll.environment == 'production' %}
-  {% include analytics.html %}
+      {% include analytics.html %}
   {% endif %}
 
   <!-- SEO -->

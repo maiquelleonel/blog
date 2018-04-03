@@ -3,28 +3,28 @@
 ################################
 navigation:
   main:
-  - title: Documentation
-    url: /docs/
-
-  - title: Themes
-    url: https://desiredpersona.com/themes/
-
-  - title: About
-    url: /about/
+  # - title: Documentation
+  #   url: /docs/
+  #
+  # - title: Themes
+  #   url: https://desiredpersona.com/themes/
+  #
+  # - title: About
+  #   url: /about/
 
   - title: Blog
     url: /archive/
 
   - title: Contact
-    url: mailto:you@example.com
+    url: mailto:maiquel@maiquelleonel.com.br
 
 
   footer:
-  - title: privacy
-    url: /privacy/
-
-  - title: terms
-    url: /terms/
+  # - title: privacy
+  #   url: /privacy/
+  #
+  # - title: terms
+  #   url: /terms/
 
 
 ################################
@@ -38,21 +38,24 @@ attribution: true
 ################################
 # UI Default Settings
 ################################
-author_bio        : true # Show author bio
-post_meta         : true # Show post meta
-share_icons       : true # Show post social sharing icons
-category_tag_list : true # Show post categories & tags
-
+# Show author bio
+author_bio        : true
+# Show post meta
+post_meta         : false
+# Show post social sharing icons
+share_icons       : true
+# Show post categories & tags
+category_tag_list : true
 # Share Icons
 twitter_icon      : true
 facebook_icon     : true
-google_plus_icon  : true
+google_plus_icon  : false
 
 # Disqus Comments
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: desired-persona-dev
+    #shortname: desired-persona-dev
 
 
 ################################
@@ -60,16 +63,16 @@ disqus:
 ################################
 text:
     # Post Settings
-    updated           : Updated
+    updated           : Atualizado
     words_per_minute  : 200
-    less_than         : Less than
-    minute_read       : min read
+    less_than         : Menos de
+    minute_read       : min. de leitura
     undefined_wpm     : Undefined parameter text.words_per_minute in your theme.yml
-    caption           : Image
+    caption           : Imagem
 
     # Home Layout Settings
     post_limit        : 3
-    read_more         : Read more
-    latest_articles   : Recent Posts
-    full_archive      : All Posts
+    read_more         : Leia mais
+    latest_articles   : Últimos posts
+    full_archive      : Todos os posts
     full_archive_url  : /archive/

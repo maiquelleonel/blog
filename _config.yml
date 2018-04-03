@@ -1,14 +1,14 @@
 ################################
 # Site Settings
 ################################
-lang        : "en"
+lang        : "pt-br"
 logo        :
-title       : Minimal Theme
-description : Your awesome site
-author      : Desired Persona
-email       : your-email@domain.com
-baseurl     : "" # the subpath of your site, e.g. /blog
-url         : ""
+title       : "Maiquel Leonel"
+description : "Meu blog sobre assuntos que gosto e repositório de coisas legais"
+author      : "Maiquel Leonel"
+email       : maiquel@maiquelleonel.com.br
+baseurl     : "/" # the subpath of your site, e.g. /blog
+url         : "blog.maiquelleonel.com.br"
 date_format : "%-d %b %Y"
 port        : 4000
 
@@ -63,14 +63,14 @@ plugins:
 
 # Jekyll SEO Tag Settings https://github.com/jekyll/jekyll-seo-tag
 social:
-  name: Joe Bloggs
+  name: Maiquel Leonel
   links:
-    - https://twitter.com/username
-    - https://plus.google.com/u/0/+username
-    - https://www.facebook.com/username
+    - https://twitter.com/maiquelleonel
+    - https://www.facebook.com/maiquelleonel
+    #    - https://plus.google.com/u/0/+username
 
 twitter:
-  username: Joe Bloggs
+  username: Maiquel Leonel
 
 facebook:
   app_id:

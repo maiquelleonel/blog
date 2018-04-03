@@ -14,14 +14,14 @@ $font-family: -apple-system, BlinkMacSystemFont,
               sans-serif;
 
 $code-font-family: menlo, monaco, monospace;
-$code-font-size: 0.9rem;
+$code-font-size: 0.99rem;
 $code-font-weight: 300;
 
 // Links
 $link: $black;
-$hover: $black-80;
-$author-cta-link: $silver;
-$author-cta-hover: $green;
+$hover: #C9271d;
+$author-cta-link: $dark-green;
+$author-cta-hover: $hover;
 
 // Buttons
 $btn-primary: $blue;
@@ -49,7 +49,7 @@ $linenos-color: $moon-gray;
 $gutter-background-color: $light-gray;
 
 // Blockquotes
-$blockquote-border-color: $black;
+$blockquote-border-color: $hover;
 $blockquote-color: $black;
 
 // Footnotes
