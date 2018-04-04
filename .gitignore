@@ -5,4 +5,3 @@ _site
 .sass-cache
 *.gem
 .vscode
-_config.yml

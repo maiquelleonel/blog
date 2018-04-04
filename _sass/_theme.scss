@@ -13,6 +13,7 @@ body { background-color: rgba(243, 243, 243, 0.3) }
 // Links
 a {
   color: $link;
+  font-weight: 400;
   &:hover {
     color: $hover;
   }
