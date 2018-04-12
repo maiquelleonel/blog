@@ -393,11 +393,12 @@ pre {
 p > code, td > code {
   border-right: .25rem;
   padding: .25rem;
-  background-color: $code-background-color;
+  background-color:  $code-background-color;
 }
 
 .highlight {
-  background-color: $code-background-color;
+  background-color: #282c34;
+  color:#abb2bf;
 
   table {
     margin: 0;
@@ -438,8 +439,27 @@ p > code, td > code {
   .lineno {
     padding: 0;
   }
+  .c { color:#7D8491; font-style:italic }
+  .err{ color:#960050; background-color:#1e0010 }
+  .l{ color:#98c379 }
+  .ge { font-style:italic }
+  .nt { color:#e06c75 }
+  .w { color:#f8f8f2 }
+  .vi { color:#e06c75 }
+  .gu { color:#75715e }
+  .gd { color:#f92672 }
+  .gi { color:#a6e22e }
+  .ow, .gs { font-weight:700 }
+  .cm, .cp, .c1, .cs { color:#5c6370; font-style:italic }
+  .ld, .sx, .s1, .s { color:#98c379 }
+  .n, .o, .p, .nn, .nx, .nf { color:#abb2bf }
+  .kc, .kd, .kn, .kp, .kr, .k, .kt { color:#c678dd }
+  .mf, .mh, .mi, .il, .m, .na, .mo { color:#d19a66 }
+  .sb, .sc, .sd, .s2, .se, .sh, .si, .sr, .ss { color:#56b6c2 }
+  .nb, .nc, .no, .nd, .ni, .ne, .nl, .nv, .bp, .vc, .vg, .py { color:#e5c07b }
+}
 
-  // Syntax highlighting
+/* Syntax highlighting
   .c     { color: $silver; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
   .k     { font-weight: bold } // Keyword
@@ -499,7 +519,8 @@ p > code, td > code {
   .vg    { color: #008080 } // Name.Variable.Global
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
-}
+  */
+
 
 // Tachyons Background Overlays v1.1.0 https://github.com/lowmess/tachyons-background-overlays
 .bg-darken-0 { box-shadow: none; }
