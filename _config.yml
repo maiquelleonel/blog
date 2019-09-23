@@ -48,8 +48,8 @@ exclude:
 ################################
 google_analytics: UA-11722849-1
 google_analytics_async: true # https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet
-google_tag_manager:
-facebook_pixel_id:
+google_tag_manager: GTM-WBZD9NQ
+facebook_pixel_id: 1335827629921880
 
 
 ################################
