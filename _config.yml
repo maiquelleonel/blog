@@ -7,8 +7,8 @@ title       : "Maiquel Leonel"
 description : "Ensaios sobre arquitetura de software, IA agêntica, FinOps e engenharia na prática."
 author      : "Maiquel Leonel"
 email       : maiquel@maiquelleonel.com.br
-baseurl     : "/" # the subpath of your site, e.g. /blog
-url         : "https://blog.maiquelleonel.com.br"
+baseurl     : "/blog" # the subpath of your site, e.g. /blog
+url         : "https://maiquelleonel.com.br"
 date_format : "%-d %b %Y"
 port        : 4000
 
@@ -65,9 +65,9 @@ plugins:
 social:
   name: Maiquel Leonel
   links:
-    - https://twitter.com/maiquelleonel
-    - https://www.facebook.com/maiquelleonel
-    #    - https://plus.google.com/u/0/+username
+    - https://maiquelleonel.medium.com
+    - https://github.com/maiquelleonel
+    - https://dev.to/maiquelleonel-
 
 twitter:
   username: maiquelleonel
