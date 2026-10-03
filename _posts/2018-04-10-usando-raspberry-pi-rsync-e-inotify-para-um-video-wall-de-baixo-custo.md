@@ -55,7 +55,20 @@ $ sudo apt install rsync inotify-tools
 ```
 
 Dependências instaladas, o show pode começar. A primeira tarefa é fazer o rsync monitorar a pasta remota na pasta que o videolooper lerá. Isso eu farei por um shellscript. Crio um arquivo chamado `atualizador.sh`, dou permissão de execução com o comando `chmod +x atualizador.sh`, e adiciono o seguinte conteúdo:
-<script src="https://gist.github.com/maiquelleonel/a5ed65ecab78fd0ceddcfde7a2c92c2e.js"></script>
+```bash
+#!/bin/bash
+
+RSYNC=/usr/bin/rsync
+SSH=/usr/bin/ssh
+KEY=/home/pi/.ssh/remoteuser_rsa.pem
+RUSER=remoteuser
+RHOST=remotehost.com.br
+RPATH=/home/remoteuser/videos/*
+LPATH=/home/pi/Videos/
+
+$RSYNC -razp --force --delete-before --ignore-errors -e "$SSH -i $KEY" $RUSER@$RHOST:$RPATH $LPATH
+exit 0
+```
 
 Explicando detalhadamente: o que fiz foi deixar em variáveis tudo o que vamos precisar para diminuir o tamanho do comando e melhorar a legibilidade. Ficou uma variável por linha e o comando no final, façinho!
 
@@ -95,7 +108,13 @@ Lembrei que tinha feito um teste para uma vaga de emprego anos atrás onde o usu
 
 Configurar o inotify-tools: Criei um arquivo chamado `monitor.sh` (`chmod +x monitor.sh`) para executar um reboot sempre que um arquivo no diretório `/home/pi/Videos/` for fechado para escrita.
 
-<script src="https://gist.github.com/maiquelleonel/a120ffa61763a63c9ccaedf08694b703.js"></script>
+```bash
+#!/bin/sh
+inotifywait --recursive --monitor --quiet --event close_write --format '%f' /home/pi/Videos/ |
+while read FILE ; do
+    reboot
+done
+```
 
 O que eu faço aí é “dizer” pro inotifywait: execute um reboot sempre que algum recurso de formato ‘%f’ (arquivo) no diretório /home/pi/Videos/ for fechado para escrita, sem avisos, em modo monitor, de maneira recursiva. Os parâmetros são autoexplicativos.
 
