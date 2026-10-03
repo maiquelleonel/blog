@@ -16,7 +16,6 @@ image: /assets/images/1_tPuy3qW6Qasyn27nQk_XmA.jpeg
 image_caption: Por que código perfeito não salva produto ruim
 ---
 
-{% include figure image_path="/assets/images/capa_tpmeng.jpeg" %}
 ### Introdução: A Engenharia como Criatura Liminar e Colaborativa
 
 O maior erro do engenheiro de software é acreditar que código tecnicamente perfeito salva produto ruim. Passamos anos refinando algoritmos, otimizando queries e blindando pipelines de CI/CD, mas frequentemente nos isolamos na escovação de bits enquanto o produto sangra na mão do usuário.
@@ -25,7 +24,7 @@ Em *The Product-Minded Engineer*, Drew Hoskins utiliza uma analogia precisa: o e
 
 Na natureza, lontras sobrevivem em grupos (*rafts*), segurando as patas umas das outras para não derivarem sozinhas pela correnteza. Na engenharia, isso se traduz em alinhamento: o *Product Thinking* não é um chapéu opcional que terceirizamos para a equipe de Design ou de Produto; é o contrato de governança que conecta a arquitetura técnica ao impacto real do negócio.
 
-{% include figure image_path="/assets/images/tpmeng-1.jpeg" %}
+{% include figure image_path="/assets/images/1__0TOJxOBYpPxc_UQ3j3ZFw.jpeg" %}
 
 Para navegar nessa dinâmica sem cair no purismo acadêmico, equilibramos dois modos mentais:
 
@@ -42,7 +41,7 @@ Quando a engenharia se isola em métricas puramente técnicas, o risco de constr
 
 A Tea++ é uma rede fictícia de 300 cafeterias enfrentando queda de receita e precisando urgentemente elevar a conversão de pedidos pelo aplicativo.
 
-{% include figure image_path="/assets/images/tpmeng-2.jpeg" %}
+{% include figure image_path="/assets/images/1_bFn0My9e5aihlYOu_ueYag.jpeg" %}
 
 #### Bob, o engenheiro “tarefeiro”
 
