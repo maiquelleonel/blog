@@ -4,10 +4,10 @@ title: 'O Harness, o SDD e o Vibe-Coding: uma abordagem de engenharia'
 author: Maiquel Leonel
 date: '2026-05-28'
 tags:
-- specdrivendevelopment
-- aiagents
-- softwareengineering
-- devops
+- Spec Driven Development
+- AI Agents
+- Software Engineering
+- DevOps
 description: Mover um software além da fase mashup exige substituir a intuição por
   uma governança de engenharia rígida. Estudo de caso com Savage Worlds Dice Roller,
   Bun e Spec-Kit.

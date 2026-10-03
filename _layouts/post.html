@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<main class="flex flex-column items-center">
+<main class="flex flex-column items-center w-100">
   <article class="mw8 w-100 ph2">
     <header class="{% if page.post_meta == false %}mt5{% endif %}">
 
@@ -16,17 +16,19 @@ layout: default
     {% include post_meta.html %}
     {% endif %}
 
-    {% if page.image %}
-    <figure class="w-100 mv4">
-        <img class="w-100 br2 shadow-1 db" style="max-height: 520px; object-fit: cover;" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-        {% if page.image_caption %}
-        <figcaption class="f6 gray tc mt2 i">{{ page.image_caption }}</figcaption>
-        {% endif %}
-    </figure>
-    {% endif %}
-
     </header>
+  </article>
 
+  {% if page.image %}
+  <figure class="w-100 mv4 ph0" style="width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+      <img class="w-100 db" style="max-height: 85vh; width: 100%; object-fit: contain; background-color: #0d1117;" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      {% if page.image_caption %}
+      <figcaption class="f6 gray tc mt2 i">{{ page.image_caption }}</figcaption>
+      {% endif %}
+  </figure>
+  {% endif %}
+
+  <article class="mw8 w-100 ph2">
     <div class="mw8 w-100 f4 f3-ns fw3 lh-copy mb0">
         {{ content }}
     </div>
