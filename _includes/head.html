@@ -23,6 +23,17 @@
       {% include analytics.html %}
   {% endif %}
 
+
+  <!-- Open Graph / Cover Image for Medium & Social Crawlers -->
+  {% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  <meta name="image" content="{{ page.image | absolute_url }}">
+  {% endif %}
+  {% if page.subtitle %}
+  <meta property="og:description" content="{{ page.subtitle }}">
+  {% endif %}
+
   <!-- SEO -->
   {% seo %}
 </head>
