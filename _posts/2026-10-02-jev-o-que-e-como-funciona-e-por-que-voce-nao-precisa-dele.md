@@ -9,20 +9,13 @@ tags:
 - Modern Bert
 - ONNX
 - Fin Ops
+subtitle: Muito hype para algo que o open source já resolveu e nem gera texto.
 description: Entenda o Jev, o Laya e como usar a alternativa open source para rodar
   modelos de microdecisão tipados localmente na CPU com custo zero e 30ms de latência.
 image: /assets/images/capa_jev_smart_gate.png
 image_caption: 'Portas de controle em arquiteturas de software: separando decisões
   determinísticas de alta frequência do raciocínio generativo.'
 ---
-
-
-# Jev: O Que É, Como Funciona e Por Que Você Não Precisa Dele
-
-*Muito hype para algo que o open source já resolveu e nem gera texto.*
-
-{% include figure image_path="/assets/images/capa_jev_smart_gate.png" %}
-*Portas de controle em arquiteturas de software: separando decisões determinísticas de alta frequência do raciocínio generativo.*
 
 Chamar um modelo de 400 bilhões de parâmetros como o Claude Opus ou o GPT-4o para responder se um comando no terminal pode apagar arquivos é como acionar uma usina nuclear para acender um fósforo. Você queima centenas de milissegundos de decodificação sequencial, torra centavos por requisição e introduz um ponto de falha bizarro em algo que deveria ser um simples `if/else`.
 
@@ -40,8 +33,7 @@ A questão real não é contratar outro SaaS de IA para a sua esteira agêntica,
 
 A separação entre geração de texto e tomada de decisão apoia-se na psicologia cognitiva de Daniel Kahneman[^1]. Em *Rápido e Devagar* (*Thinking, Fast and Slow*), Kahneman estabeleceu a distinção entre dois modos de processamento mental:
 
-{% include figure image_path="/assets/images/div_cog_arq_ia.png" %}
-*O modelo mental de Daniel Kahneman aplicado à IA: Sistema 1 para reflexos rápidos de 30ms vs. Sistema 2 para raciocínio deliberativo.*
+{% include figure image_path="/assets/images/div_cog_arq_ia.png" caption="O modelo mental de Daniel Kahneman aplicado à IA: Sistema 1 para reflexos rápidos de 30ms vs. Sistema 2 para raciocínio deliberativo." alt="O modelo mental de Daniel Kahneman aplicado à IA: Sistema 1 para reflexos rápidos de 30ms vs. Sistema 2 para raciocínio deliberativo." %}
 
 * **Sistema 1 (Reflexo Imediato):** Opera em milissegundos de forma automática, com custo computacional desprezível e reconhecimento direto de padrões. É o cérebro respondendo quanto é `2 + 2` ou desviando o pé de um obstáculo no chão.
 * **Sistema 2 (Raciocínio Deliberativo):** Opera de forma lenta e sequencial em segundos ou minutos, com alto custo computacional e foco contínuo. É o cérebro calculando de cabeça quanto é `17 × 43` ou planejando uma jogada complexa de xadrez.
@@ -66,8 +58,7 @@ Modelos como GPT-4o e Claude geram texto token por token. Para devolver um JSON 
 ### A Mecânica de Passo Único do Encoder
 Modelos System 1 baseiam-se em arquiteturas de **Encoder** (como ModernBERT). Eles executam a inferência em **uma única passagem computacional (*Single Forward Pass*)**:
 
-{% include figure image_path="/assets/images/mecanica_encoder.png" %}
-*Inferência em passo único (Single Forward Pass): projeção direta dos logits nas cabeças neurais (Sigmoid, Softmax e Regressão).*
+{% include figure image_path="/assets/images/mecanica_encoder.png" caption="Inferência em passo único (Single Forward Pass): projeção direta dos logits nas cabeças neurais (Sigmoid, Softmax e Regressão)." alt="Inferência em passo único (Single Forward Pass): projeção direta dos logits nas cabeças neurais (Sigmoid, Softmax e Regressão)." %}
 
 1. **Latência Determinística (30ms a 70ms):** Como a inferência não gera tokens em loop, o tempo de resposta é constante e ditado apenas pelo tamanho do payload e pela largura de banda da memória.
 2. **Tipagem Direta via Logits:** O modelo não gera texto para ser parseado com `json.loads()`. Ele projeta os logits diretamente em funções de ativação matemática (`Sigmoid` para booleanos, `Softmax` para distribuições categóricas).
@@ -85,8 +76,7 @@ O Jev **não é um LLM que finge falar JSON** através de instruções de sistem
 * **Structured Outputs em LLMs (OpenAI, Outlines, Guidance):** O modelo continua sendo um decodificador auto-regressivo que gera token por token, guiado por máscaras de gramática formal (CFG / Regex). A latência varia entre 2.000ms e 5.000ms porque a GPU precisa recalcular o KV-Cache sequencial para dezenas de tokens de sintaxe (`{`, `"`, `:`).
 * **Modelos de Decisão System 1 (Jev, Laya):** Zero geração de tokens. O transformer processa o embedding contextual do estado em passo único e projeta diretamente as distribuições nas cabeças neurais de classificação. A latência é constante entre 30ms e 70ms, executando multiplicação matricial direta sem manter estado de decodificação.
 
-{% include figure image_path="/assets/images/lifecycle_system_1.png" %}
-*Ciclo de vida de um modelo de decisão: registro prévio do Rulebook (Fase 1) e avaliação multi-campo de alta velocidade em runtime (Fase 2).*
+{% include figure image_path="/assets/images/lifecycle_system_1.png" caption="Ciclo de vida de um modelo de decisão: registro prévio do Rulebook (Fase 1) e avaliação multi-campo de alta velocidade em runtime (Fase 2)." alt="Ciclo de vida de um modelo de decisão: registro prévio do Rulebook (Fase 1) e avaliação multi-campo de alta velocidade em runtime (Fase 2)." %}
 
 ---
 ### Fase 1: A Injeção Prévia do Esquema de Decisão (*Rulebook Injection*)
@@ -266,8 +256,7 @@ def evaluate_command_execution(
 
 Seguindo o vídeo-ensaio de **IndyDevDan**[^2], podemos dividir a aplicação dos sistemas System 1 em 10 níveis de maturidade:
 
-{% include figure image_path="/assets/images/10_lvl_validate_agentic_system.png" %}
-*Matriz de maturidade: os 10 padrões arquiteturais de uso de modelos de decisão rápida em esteiras de agentes autônomos.*
+{% include figure image_path="/assets/images/10_lvl_validate_agentic_system.png" caption="Matriz de maturidade: os 10 padrões arquiteturais de uso de modelos de decisão rápida em esteiras de agentes autônomos." alt="Matriz de maturidade: os 10 padrões arquiteturais de uso de modelos de decisão rápida em esteiras de agentes autônomos." %}
 
 ---
 ### Nível 1: Validação Condicional Rápida (*Smart IF*)
@@ -303,8 +292,7 @@ if (decision["is_destructive"]["value"] and decision["is_destructive"]["confiden
 Posiciona uma porta de triagem barata na frente de pools de modelos caros.
 * **Caso de Uso:** Analisar o prompt do desenvolvedor em 30ms. Se for uma dúvida de documentação, despacha para um SLM local, uma consulta no FAQ ou Claude Haiku da vida; se envolver refatoração arquitetural profunda, direciona para um GPT Sol, Gemini 3.8 pro, GLM 5.3
 
-{% include figure image_path="/assets/images/smart_router.png" %}
-*Roteamento hierárquico: triagem em 30ms despachando prompts simples para modelos leves e reservando LLMs caros para síntese profunda.*
+{% include figure image_path="/assets/images/smart_router.png" caption="Roteamento hierárquico: triagem em 30ms despachando prompts simples para modelos leves e reservando LLMs caros para síntese profunda." alt="Roteamento hierárquico: triagem em 30ms despachando prompts simples para modelos leves e reservando LLMs caros para síntese profunda." %}
 
 ### Nível 6: Guardrails no Harness do Agente (*Harness Hooks / JevGuard*)
 Intercepta a execução de ferramentas (*tool calls*) diretamente no loop de runtime do agente.
@@ -352,8 +340,7 @@ No entanto, sob a ótica de arquitetura de sistemas e governança corporativa, *
 
 Com 421 milhões de parâmetros sob licença Apache 2.0, o **ModernBERT** é leve o suficiente para rodar com menos de 1.5 GB de VRAM ou diretamente em CPU quantizada via INT8. Sua arquitetura traz suporte nativo a 8.192 tokens com *Rotary Position Embeddings (RoPE)* e *FlashAttention-2*, permitindo processar arquivos inteiros de código ou payloads densos em passo único. Uma vez treinado, o modelo pode ser compilado para o runtime **ONNX**, funcionando como um artefato local autocontido no contêiner Docker, no terminal da IDE ou na borda da VPC.
 
-{% include figure image_path="/assets/images/api_vs_local_dilema.png" %}
-*Arquitetura SaaS vs. Soberania de Borda: latência de rede transatlântica e vazamento de código vs. 30ms locais em CPU via ONNX.*
+{% include figure image_path="/assets/images/api_vs_local_dilema.png" caption="Arquitetura SaaS vs. Soberania de Borda: latência de rede transatlântica e vazamento de código vs. 30ms locais em CPU via ONNX." alt="Arquitetura SaaS vs. Soberania de Borda: latência de rede transatlântica e vazamento de código vs. 30ms locais em CPU via ONNX." %}
 
 ---
 
@@ -378,8 +365,7 @@ A grande vantagem de arquiteturas de pesos abertos como o Laya sobre ModernBERT 
 
 No experimento, o processo de cura do modelo para transformar o Laya base ruidoso em um classificador especialista seguiu etapas diretas de engenharia:
 
-{% include figure image_path="/assets/images/refit_pipeline.jpeg" %}
-*Pipeline empírico de especialização do Laya: fine-tuning de 10 minutos no Google Colab gratuito, eliminando falsos positivos no domínio.*
+{% include figure image_path="/assets/images/refit_pipeline.jpeg" caption="Pipeline empírico de especialização do Laya: fine-tuning de 10 minutos no Google Colab gratuito, eliminando falsos positivos no domínio." alt="Pipeline empírico de especialização do Laya: fine-tuning de 10 minutos no Google Colab gratuito, eliminando falsos positivos no domínio." %}
 
 1. **Curadoria do Dataset de Domínio:**  
    O experimento utilizou um conjunto balanceado de mensagens reais e sintéticas de transferências bancárias e conversas cotidianas em português, contrastadas com padrões de engenharia social, falsos comprovantes e tentativas de golpe via Pix.
@@ -397,8 +383,7 @@ No experimento, o processo de cura do modelo para transformar o Laya base ruidos
 
 Para organizar portas lógicas e fluxos de controle com parcimônia computacional, podemos estruturar as decisões do sistema em quatro camadas complementares:
 
-{% include figure image_path="/assets/images/smart_decision.png" %}
-*As quatro camadas de controle: da lógica booleana determinística (0ms) aos LLMs de raciocínio abstrato (3.000ms).*
+{% include figure image_path="/assets/images/smart_decision.png" caption="As quatro camadas de controle: da lógica booleana determinística (0ms) aos LLMs de raciocínio abstrato (3.000ms)." alt="As quatro camadas de controle: da lógica booleana determinística (0ms) aos LLMs de raciocínio abstrato (3.000ms)." %}
 ### Camada 0: Lógica Booleana Pura, AST e Expressões Regulares
 Validações de sintaxe estrita, formatos conhecidos de arquivo e checagens de tipos em tempo de compilação devem permanecer no código tradicional. Um parser sintático ou uma condicional `if` bem escrita entrega latência zero, custo nulo e determinismo absoluto. Redes neurais não devem ser usadas para resolver problemas que a lógica formal já soluciona com precisão.
 ### Camada 1: Modelos de Decisão System 1 Locais (Laya / ModernBERT ONNX)

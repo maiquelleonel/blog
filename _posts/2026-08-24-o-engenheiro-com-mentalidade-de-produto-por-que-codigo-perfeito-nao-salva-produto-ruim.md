@@ -16,9 +16,6 @@ image: /assets/images/1_tPuy3qW6Qasyn27nQk_XmA.jpeg
 image_caption: Por que código perfeito não salva produto ruim
 ---
 
-
-## Introdução: A Engenharia como Criatura Liminar e Colaborativa
-
 O maior erro do engenheiro de software é acreditar que código tecnicamente perfeito salva produto ruim. Passamos anos refinando algoritmos, otimizando queries e blindando pipelines de CI/CD, mas frequentemente nos isolamos na escovação de bits enquanto o produto sangra na mão do usuário.
 
 Em *The Product-Minded Engineer*, Drew Hoskins utiliza uma analogia precisa: o engenheiro de software é uma criatura de fronteira, semelhante à lontra-marinha. Precisamos mergulhar nas profundezas da infraestrutura, dos bancos de dados e dos sistemas distribuídos para construir a base técnica, mas dependemos do oxigênio da superfície — as restrições reais de negócio e o comportamento do usuário — para não morrer sufocados.

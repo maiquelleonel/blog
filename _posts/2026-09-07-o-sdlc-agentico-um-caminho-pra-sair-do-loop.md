@@ -8,19 +8,12 @@ tags:
 - Artificial Intelligence
 - Software Engineering
 - Dev Ops
+subtitle: Por que se você está inserido no loop, você é o gargalo.
 description: Por que autocompletes de IA não aceleram mais a engenharia e como estruturar
   uma esteira com agentes autônomos, isolamento e governança determinística.
 image: /assets/images/capa_sdlc_loop_infernal.png
 image_caption: O loop infernal do Vibe Coding e a transição para o SDLC Agêntico
 ---
-
-
-# SDLC Agêntico: Um Caminho para Sair do Loop
-
-*Por que se você está inserido no loop, você é o gargalo.*
-
-{% include figure image_path="/assets/images/capa_sdlc_loop_infernal.png" %}
-*A armadilha do loop manual: quando a liderança acha que adotar IA é virar operador de manivela de código.*
 
 Nas últimas semanas, enquanto pesquisava padrões para estruturar o desenvolvimento com IA além do _hype_ de autocompletes na IDE, assisti aos vídeos-ensaios de Dan Disler (_IndyDevDan_)¹ sobre fábricas de software autônomas. Me debrucei sobre o tema e devorei a excelente edição _pre-release_ do _The Agentic SDLC Handbook_² de Daniel Meppiel. E quando a Anthropic publicou na semana passada o seu _AI-Native SDLC Playbook_³, tudo se encaixou: decidi registrar o que aprendi consumindo esse material e como essa abordagem pode ser o caminho para amplificar de verdade o impacto da nossa entrega de software.
 
@@ -38,8 +31,7 @@ Programar guiado apenas pela intuição do modelo funciona bem em projetos novos
 
 O problema é o **Vibe Coding Cliff** — o ponto em que essa intuição quebra ao encontrar monólitos ou ecossistemas legados de centenas de milhares de linhas.
 
-{% include figure image_path="/assets/images/vibe_coding_cliff.png" %}
-*O Vibe Coding Cliff: o protótipo acelerando contra a muralha de regras não documentadas.*
+{% include figure image_path="/assets/images/vibe_coding_cliff.png" caption="O Vibe Coding Cliff: o protótipo acelerando contra a muralha de regras não documentadas." alt="O Vibe Coding Cliff: o protótipo acelerando contra a muralha de regras não documentadas." %}
 
 As falhas do agente decorrem principalmente de **assimetria de informação**:
 
@@ -83,8 +75,7 @@ Preparar a diretoria e o CFO para o vale inicial evita cancelamentos prematuros 
 
 ## 3. Arquitetura de Referência: O Modelo de Três Camadas
 
-{% include figure image_path="/assets/images/arquitetura_3_camadas.png" %}
-*A Arquitetura de 3 Camadas: Decisão humana no topo estratégico, agentes operando em sandboxes no centro e plataforma determinística na base.*
+{% include figure image_path="/assets/images/arquitetura_3_camadas.png" caption="A Arquitetura de 3 Camadas: Decisão humana no topo estratégico, agentes operando em sandboxes no centro e plataforma determinística na base." alt="A Arquitetura de 3 Camadas: Decisão humana no topo estratégico, agentes operando em sandboxes no centro e plataforma determinística na base." %}
 
 Modelos de linguagem não são confiáveis por natureza: eles prevêem o próximo token mais provável. Quem garante a consistência de um sistema corporativo não é a inteligência do prompt, mas a arquitetura que cerca o modelo.
 
@@ -160,8 +151,7 @@ Se a escrita mecânica de sintaxe agora é a etapa mais barata do desenvolviment
 
 A reorganização descrita no [Capítulo 6 do *The Agentic SDLC Handbook*](https://danielmeppiel.github.io/agentic-sdlc-handbook/) enterra a fantasia do "dev 10x solo" e foca no **Time 10x**: uma estrutura onde a alavancagem vem do contexto sistêmico compartilhado no repositório.
 
-{% include figure image_path="/assets/images/novas_estruturas_de_equipes.png" %}
-*Guia de Estruturas de Equipe: A redistribuição da carga cognitiva, novos papéis especializados e o pipeline de formação de talentos juniores.*
+{% include figure image_path="/assets/images/novas_estruturas_de_equipes.png" caption="Guia de Estruturas de Equipe: A redistribuição da carga cognitiva, novos papéis especializados e o pipeline de formação de talentos juniores." alt="Guia de Estruturas de Equipe: A redistribuição da carga cognitiva, novos papéis especializados e o pipeline de formação de talentos juniores." %}
 
 ### O Toolkit de Diagnóstico da Liderança: A Matriz de Responsabilidade
 
@@ -218,8 +208,7 @@ No mesmo estudo de caso do *Growth Engine* [documentado no Capítulo 7 do handbo
 *   **Na força bruta (*Vibe Coding*):** Despejar arquivos crus na janela de contexto (*Context Dumping*) e rodar loops cegos em modelos *Frontier* topo de linha queimou **$41.01 USD**.
 *   **Com arquitetura de contexto (*Harness*):** Poda cirúrgica *Just-in-Time*, *prompt caching* e escalonamento hierárquico de modelos entregaram o mesmo diff por **$4.81 USD**.
 
-{% include figure image_path="/assets/images/finops_19_arquivos_banquete.png" %}
-*The Agentic Bill: custo elevado por contexto bruto versus eficiência com poda e modelos escalonados.*
+{% include figure image_path="/assets/images/finops_19_arquivos_banquete.png" caption="The Agentic Bill: custo elevado por contexto bruto versus eficiência com poda e modelos escalonados." alt="The Agentic Bill: custo elevado por contexto bruto versus eficiência com poda e modelos escalonados." %}
 
 ### O Leader's Playbook: Engenharia de Custos na Prática
 
@@ -238,8 +227,7 @@ Para conter essa sangria sem travar a produtividade da equipe, o [Leader's Playb
 
 Tentar virar a chave de uma só vez (*Big Bang*) em toda a engenharia é o caminho mais rápido para acumular um cemitério de PRs quebrados, desenvolvedores exaustos e faturas infladas.
 
-{% include figure image_path="/assets/images/harness_vs_hamster_loop.png" %}
-*Loop Engineering vs. Harness: tentativas cegas consumindo tokens versus validação em trilhos determinísticos.*
+{% include figure image_path="/assets/images/harness_vs_hamster_loop.png" caption="Loop Engineering vs. Harness: tentativas cegas consumindo tokens versus validação em trilhos determinísticos." alt="Loop Engineering vs. Harness: tentativas cegas consumindo tokens versus validação em trilhos determinísticos." %}
 
 ### As 4 Dimensões da Prontidão Organizacional
 

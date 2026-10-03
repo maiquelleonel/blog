@@ -16,15 +16,6 @@ image_caption: 'Além da mentalidade de mero usuário de IA: construindo valor c
   e modelos locais'
 ---
 
-
----
-
-### AI Value Creators: Além da Mentalidade de Mero Usuário de IA
-
-{% include figure image_path="/assets/images/1_cWmjb1o5k0OpjaqluoBekg.png" %}
-
-_Acelerando sem sair do lugar: entrega rápida, diferencial zero e você ainda paga pra destilar seu know-how pro modelo dos outros._
-
 Passei os últimos dias lendo _AI Value Creators_, livro lançado pela O’Reilly reunindo Rob Thomas, Paul Zikopoulos e Kate Soule. A maioria das publicações sobre IA generativa lançadas recentemente parece escrita por quem nunca colocou uma linha de código em produção ou nunca precisou justificar uma fatura de nuvem no fim do mês. Esse livro foi na contramão.
 
 Os autores tocam num ponto que pouca gente na liderança quer admitir em voz alta: quase todo mundo que diz estar inovando com IA hoje só está alugando inteligência de prateleira. A empresa compra licenças de copilotos, espalha chamadas de API genéricas pelo sistema, monta um chatbot por cima de um fluxo que já era quebrado e chama isso de estratégia.

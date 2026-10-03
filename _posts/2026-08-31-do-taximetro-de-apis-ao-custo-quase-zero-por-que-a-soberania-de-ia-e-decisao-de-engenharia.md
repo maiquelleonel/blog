@@ -16,12 +16,6 @@ image: /assets/images/capa_token_tax_dystopian.png
 image_caption: O mito do imposto de token e a soberania de infraestrutura em IA
 ---
 
-
-# Do Taxímetro de APIs ao Custo Quase Zero: Por que a Soberania de IA é Decisão de Engenharia, Não Distopia Cyberpunk
-
-{% include figure image_path="/assets/images/capa_token_tax_dystopian.png" %}
-*A cancela em frente à pirâmide da Tyrell Corp: cobrando taxa por requisição até a engenharia descobrir os pesos abertos.*
-
 Parece cena de ficção científica: uma cancela de pedágio aos pés da pirâmide da Tyrell Corp cobrando uma taxa por cada bit do seu código. Daria pra chamar de **"imposto de token"** essa tentativa de criar um *lock-in* onde três ou quatro fornecedores de IA precificam cada linha de código que o seu time digita.
 
 A armadilha é conveniente para quem vende: empacota modelos como caixas-pretas e convence todo mundo de que o único jeito de inovar é manter a bandeira 2 rodando na API deles 24 horas por dia. Se você não pagar, sua empresa fica para trás.
@@ -40,8 +34,7 @@ Ninguém mais programa abrindo aba de navegador para pedir regex isolada. A gent
 
 E aqui mora a pegadinha: **o modelo *pay-per-token* pune de maneira exponencial qualquer fluxo com sessões longas e contexto acumulado.**
 
-{% include figure image_path="/assets/images/hidden_partner.jpeg" %}
-*O sócio oculto na sua IDE: faturando em cima de cada Enter enquanto o seu time tenta fechar a sprint.*
+{% include figure image_path="/assets/images/hidden_partner.jpeg" caption="O sócio oculto na sua IDE: faturando em cima de cada Enter enquanto o seu time tenta fechar a sprint." alt="O sócio oculto na sua IDE: faturando em cima de cada Enter enquanto o seu time tenta fechar a sprint." %}
 
 A cada mensagem em uma sessão de debug, o editor não envia só os 15 caracteres que você acabou de digitar. Ele empacota todo o histórico acumulado, os diffs e os arquivos abertos. Se a sua sessão já tem 80k tokens de contexto, cada *Enter* faz o taxímetro rodar sobre esses 80k inteiros de entrada, além dos tokens gerados na resposta.
 
@@ -61,8 +54,7 @@ Parabéns: você colocou um sócio oculto dentro da sua IDE. Alguém que lucra m
 
 ## 2. A Comoditização Acelerada: Pesos Abertos vs. APIs Fechadas
 
-{% include figure image_path="/assets/images/black_ice_corp.png" %}
-*[Black ICE](https://en.wikipedia.org/wiki/Intrusion_Countermeasures_Electronics) corporativo: o firewall de 1 milhão de tokens tentando vender como privilégio o que já virou commodity.*
+{% include figure image_path="/assets/images/black_ice_corp.png" caption="[Black ICE](https://en.wikipedia.org/wiki/Intrusion" alt="[Black ICE](https://en.wikipedia.org/wiki/Intrusion" %}Countermeasures_Electronics) corporativo: o firewall de 1 milhão de tokens tentando vender como privilégio o que já virou commodity.*
 
 A narrativa de que só superclusters de 100 bilhões de dólares conseguem gerar código de ponta envelheceu rápido. As megacorps adoram estampar "1M de tokens" e "acesso exclusivo" em murais corporativos para justificar o *lock-in*, mas no dia a dia da engenharia de software, modelos abertos modernos já entregam paridade técnica com as APIs mais caras do mercado.
 
@@ -76,8 +68,7 @@ Com a maturidade das técnicas de quantização (AWQ, FP8, GGUF) e *engines* de 
 
 ## 3. A Arquitetura Real: 48 GB de VRAM e Gestão Ativa de Ciclo
 
-{% include figure image_path="/assets/images/indy_cyberDeck_v3.jpeg" %}
-*O Cyberdeck moderno: infraestrutura dedicada e controle total da sua própria computação.*
+{% include figure image_path="/assets/images/indy_cyberDeck_v3.jpeg" caption="O Cyberdeck moderno: infraestrutura dedicada e controle total da sua própria computação." alt="O Cyberdeck moderno: infraestrutura dedicada e controle total da sua própria computação." %}
 
 Para dimensionar um cenário real, considere esta arquitetura provisionada na Google Cloud (GCP):
 
@@ -186,8 +177,7 @@ Ao rodar modelos dentro da sua VPC conectada via Cloud VPN ou [Tailscale](https:
 ### Fim do Estrangulamento por *Rate Limit*
 Depender de APIs públicas significa conviver com o risco do `HTTP 429 Too Many Requests` no pior momento possível: durante um incidente em produção ou na véspera de uma release crítica. Com infraestrutura dedicada, a vazão é sua e responde unicamente à demanda do seu time.
 
-{% include figure image_path="/assets/images/dev_desk_429_error_v1.png" %}
-*HTTP 429 na veia: quando a sua IDE vira um fliperama pedindo ficha para você continuar trabalhando.*
+{% include figure image_path="/assets/images/dev_desk_429_error_v1.png" caption="HTTP 429 na veia: quando a sua IDE vira um fliperama pedindo ficha para você continuar trabalhando." alt="HTTP 429 na veia: quando a sua IDE vira um fliperama pedindo ficha para você continuar trabalhando." %}
 
 ### A GPU Como Ativo de Produto (Dia e Noite)
 A mesma instância provisionada para auxiliar os desenvolvedores durante o expediente não precisa ficar ociosa depois das 19h. Fora do horário comercial, ela pode absorver cargas assíncronas do próprio produto:
