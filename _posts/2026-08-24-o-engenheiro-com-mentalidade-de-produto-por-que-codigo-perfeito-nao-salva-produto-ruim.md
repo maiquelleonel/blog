@@ -61,8 +61,8 @@ Um cenário não é um ticket descritivo no Jira; é um teste de aceitação de 
 
 Para quebrar a “Maldição do Conhecimento” — o viés de conhecer cada detalhe da infraestrutura interna — , utilizamos duas técnicas mentais:
 
-- ***Shoe-shifting *(Troca de Sapatos)**: Navegar pelo fluxo despindo-se do conhecimento de banco de dados e APIs, avaliando a tela com a perspectiva de um usuário leigo sob pressão.
-- **Amnésia Seletiva:** Se para entender a lentidão ou o comportamento de uma tela você precisa lembrar que *“o worker assíncrono processa o payload e atualiza o estado via WebSocket”*, o design da interface falhou.
+1. ***Shoe-shifting *(Troca de Sapatos)**: Navegar pelo fluxo despindo-se do conhecimento de banco de dados e APIs, avaliando a tela com a perspectiva de um usuário leigo sob pressão.
+2. **Amnésia Seletiva:** Se para entender a lentidão ou o comportamento de uma tela você precisa lembrar que *“o worker assíncrono processa o payload e atualiza o estado via WebSocket”*, o design da interface falhou.
 
 ### Premissas do Comportamento Humano
 
@@ -70,7 +70,7 @@ Ao desenhar contratos de software e interfaces, assuma três verdades brutais:
 
 - **Preguiça Cognitiva**: Processamento mental consome energia. O usuário sempre buscará o caminho de menor esforço cerebral.
 - **Aversão a Manuais**: Ninguém lê documentações ou FAQs para tarefas operacionais. O fluxo precisa ser autoexplicativo por construção.
-- **Foco na Conclusão da Tarefa**: O usuário não entra na aplicação para contemplar a sofisticação da arquitetura; ele quer resolver um problema e fechar o app.
+- **Foco na Conclusão da Tarefa**: O usuário não entra na aplicação para contemplar a sofisticação da arquitetura; ele quer resolver um problema e fechar o app.
 
 ### Parte I: Develop — Interface e Comunicação
 
@@ -94,13 +94,15 @@ O PDM mapeia o caminho de descoberta do produto como um grafo direcionado: cada 
 
 Quando um fluxo crítico exige saltos arbitrários entre menus desconexos, o grafo está fragmentado, forçando o usuário a desistir da jornada.
 
+```text
 Fluxo Fragmentado (Atrito Alto):
-[Home] ──&gt; [Configurações] ──&gt; [Avançado] ──&gt; 
-                               [Assinatura] ──&gt; [Trocar Cartão]
+[Home] ──> [Configurações] ──> [Avançado] ──> 
+                               [Assinatura] ──> [Trocar Cartão]
 
 Fluxo Contratual Otimizado (PDM):
-[Home] ──&gt; [Alerta de Pagamento Pendente] ──&gt;
+[Home] ──> [Alerta de Pagamento Pendente] ──>
                                [Atualizar Cartão (1-Click)]
+```
 
 #### Estudo de Caso: O “Ribbon” do Microsoft Office
 
@@ -136,9 +138,9 @@ Antes de persistir logs ou retornar respostas HTTP genéricas, categorizamos o i
 
 #### Estudo de Caso: Channelz — Erros Contextuais
 
-A Channelz (ferramenta fictícia de comunicação corporativa estilo Slack) sofria com tickets de suporte gerados pela API de integrações, que retornava a mensagem seca: &quot;Usuário não existe&quot;.
+A Channelz (ferramenta fictícia de comunicação corporativa estilo Slack) sofria com tickets de suporte gerados pela API de integrações, que retornava a mensagem seca: "Usuário não existe".
 
-O cliente reportou que o usuário @buckcluck existia no sistema corporativo, mas os robôs falhavam continuamente. A engenheira Elise investigou o problema e identificou que o usuário existia, mas sua conta estava temporariamente inativa. Ela ajustou a resposta da API para: &quot;User @buckcluck has been deactivated.&quot;
+O cliente reportou que o usuário @buckcluck existia no sistema corporativo, mas os robôs falhavam continuamente. A engenheira Elise investigou o problema e identificou que o usuário existia, mas sua conta estava temporariamente inativa. Ela ajustou a resposta da API para: "User @buckcluck has been deactivated."
 
 O volume de chamados despencou imediatamente: o próprio cliente diagnosticou a situação e reativou o usuário, eliminando a dependência do time de engenharia.
 
@@ -146,7 +148,7 @@ O volume de chamados despencou imediatamente: o próprio cliente diagnosticou a 
 
 Como propagar erros da camada de persistência até a interface sem perder o contexto de depuração?
 
-- **Chained Exceptions**: Utilize encadeamento de exceções (ex: raise DomainError(&quot;Conta inativa&quot;) from db_error). Isso preserva o stack trace original para observabilidade interna enquanto entrega uma mensagem tratada e segura na ponta.
+- **Chained Exceptions**: Utilize encadeamento de exceções (ex: raise DomainError("Conta inativa") from db_error). Isso preserva o stack trace original para observabilidade interna enquanto entrega uma mensagem tratada e segura na ponta.
 - **Cadeias de Contexto Rico (Thicker Chains)**: Transite entidades completas do domínio nos fluxos de validação em vez de IDs opacos (user_id: 123). Isso garante que a camada de borda tenha os metadados necessários para construir respostas acionáveis.
 
 #### Shift Left, Compiladores e o Anti-exemplo do LaTeX
@@ -175,10 +177,10 @@ Para balancear esforço de engenharia e risco de negócio, adaptei essa dinâmic
 
 {% include figure image_path="/assets/images/1_B1u773LzNufXqzoJEWPslg.png" caption="A Matriz de Eisenhower aplicada à estratégia de testes de software: priorizando a cobertura para maximizar o valor do produto e a estabilidade técnica." alt="A Matriz de Eisenhower aplicada à estratégia de testes de software: priorizando a cobertura para maximizar o valor do produto e a estabilidade técnica." %}
 
-- **Faça Agora (Validar Produto | Alta Importância + Alta Urgência)**: Testes de cenário e fluxos E2E críticos (login, checkout, liquidação financeira). Se quebrarem, o negócio para imediatamente.
-- **Planeje (Mitigar Risco | Alta Importância + Baixa Urgência)**: Testes unitários e de integração focados em regras complexas de domínio. Garantem que refatorações estruturais não introduzam regressões silenciosas.
-- **Delegue (Automação de Baixo Custo | Baixa Importância + Alta Urgência)**: Testes superficiais de interface e verificações sintáticas. Devem rodar via *quality gates* automatizados sem consumir tempo nobre de análise da liderança técnica.
-- **Elimine (Débito Técnico | Baixa Importância + Baixa Urgência)**: Testes duplicados, instáveis (*flaky tests*) ou que testam detalhes efêmeros de implementação. Destrua-os sem hesitação; eles apenas inflacionam o tempo de CI e geram fadiga de alertas.
+1. **Faça Agora (Validar Produto | Alta Importância + Alta Urgência)**: Testes de cenário e fluxos E2E críticos (login, checkout, liquidação financeira). Se quebrarem, o negócio para imediatamente.
+2. **Planeje (Mitigar Risco | Alta Importância + Baixa Urgência)**: Testes unitários e de integração focados em regras complexas de domínio. Garantem que refatorações estruturais não introduzam regressões silenciosas.
+3. **Delegue (Automação de Baixo Custo | Baixa Importância + Alta Urgência)**: Testes superficiais de interface e verificações sintáticas. Devem rodar via *quality gates* automatizados sem consumir tempo nobre de análise da liderança técnica.
+4. **Elimine (Débito Técnico | Baixa Importância + Baixa Urgência)**: Testes duplicados, instáveis (*flaky tests*) ou que testam detalhes efêmeros de implementação. Destrua-os sem hesitação; eles apenas inflacionam o tempo de CI e geram fadiga de alertas.
 
 #### Estudo de Caso: Netflix — Testes de Cenário com Fakes de Alta Fidelidade
 
@@ -210,6 +212,7 @@ O código-fonte é o motor do sistema; o Gêmeo Digital (Digital Twin) é a inst
 
 Evite a armadilha de otimizar indicadores que não traduzem saúde de produto (como volume de *commits* ou linhas de código). A equipe da plataforma Temporal reformulou sua estratégia de métricas abandonando métricas de vaidade em favor de indicadores de impacto real:
 
+```text
 +---------------------+---------------------------------------+
 | Categoria           | Aplicação Prática (Caso Temporal)     |
 +---------------------+---------------------------------------+
@@ -225,6 +228,7 @@ Evite a armadilha de otimizar indicadores que não traduzem saúde de produto (c
 | (Alinhamento        | Retention), churn técnico e redução   |
 |    Estratégico)     | de chamados operacionais.             |
 +---------------------+---------------------------------------+
+```
 
 #### O Flywheel de Suporte: Respondendo com Documentação
 
@@ -242,10 +246,10 @@ O maior vetor de desperdício em desenvolvimento é projetar soluções baseadas
 
 {% include figure image_path="/assets/images/1_tzP7-nF98kZsgu5hs05y2Q.png" caption="Os quatro tipos de Espantalhos que Hoskins descreve no livro. Com um toque de “originalidade” gemini-ânica. :D" alt="Os quatro tipos de Espantalhos que Hoskins descreve no livro. Com um toque de “originalidade” gemini-ânica. :D" %}
 
-- **O Seu Clone**: O desenvolvedor idealizado. Conhece o *schema* do banco tão bem quanto você, tolera terminais complexos e adora ler especificações cruas. Ele não existe fora do time técnico.
-- **O Monge Estoico**: Um usuário irreal com paciência infinita, que ao se deparar com um erro 500 ou uma tela travada simplesmente respira fundo e reinicia o processo sem reclamar ou cancelar a assinatura.
-- **A “*Manic Pixie Dream User*”**: A usuária fictícia que ama o software incondicionalmente e engaja espontaneamente em qualquer refatoração técnica interna sem exigir retorno prático de valor.
-- **O Ator Irracional**: Alguém que age ignorando incentivos econômicos e contextuais básicos da própria rotina de trabalho.
+1. **O Seu Clone**: O desenvolvedor idealizado. Conhece o *schema* do banco tão bem quanto você, tolera terminais complexos e adora ler especificações cruas. Ele não existe fora do time técnico.
+2. **O Monge Estoico**: Um usuário irreal com paciência infinita, que ao se deparar com um erro 500 ou uma tela travada simplesmente respira fundo e reinicia o processo sem reclamar ou cancelar a assinatura.
+3. **A “*Manic Pixie Dream User*”**: A usuária fictícia que ama o software incondicionalmente e engaja espontaneamente em qualquer refatoração técnica interna sem exigir retorno prático de valor.
+4. **O Ator Irracional**: Alguém que age ignorando incentivos econômicos e contextuais básicos da própria rotina de trabalho.
 
 #### O Funil de Entrevista (CDI) e o Efeito Cthulhu
 
@@ -253,20 +257,22 @@ Ao conduzir entrevistas de descoberta (*Customer Discovery Interviews*), posterg
 
 Assim como a entidade mitológica de Lovecraft que corrompe a mente de quem a contempla, assim que o cliente visualiza o seu protótipo, a espontaneidade é destruída. A partir daquele momento, ele tentará ser educado, validando sua ideia para evitar atritos sociais.
 
-              FUNIL DE ENTREVISTA DE DESCOBERTA (CDI)
+```text
+FUNIL DE ENTREVISTA DE DESCOBERTA (CDI)
    ┌───────────────────────────────────────────────────────────┐
    │ 1. O Mundo do Usuário (Topo):                             │
    │    Narrações cronológicas de fatos passados reais.        │
-   │    &quot;Como você resolveu esse problema na última terça?&quot;    │
+   │    "Como você resolveu esse problema na última terça?"    │
    ├───────────────────────────────────────────────────────────┤
    │ 2. Fricções Reais (Meio):                                 │
    │    Mapeamento de gargalos sem mencionar soluções.         │
-   │    &quot;Qual etapa desse processo consumiu mais tempo?&quot;       │
+   │    "Qual etapa desse processo consumiu mais tempo?"       │
    ├───────────────────────────────────────────────────────────┤
    │ 3. Revelação Controlada (Base):                           │
    │    Protótipos expostos apenas nos minutos finais.         │
    │    Captura de reações viscerais e feedbacks de atrito.    │
    └───────────────────────────────────────────────────────────┘
+```
 
 #### Estudo de Caso: Facebook App Center — A Matriz de Personas em Ação
 
@@ -311,7 +317,7 @@ Todo desenvolvimento de software é, na essência, design de interação de sist
 
 Estes dois conceitos clássicos de Don Norman são as ferramentas de ouro para decifrar como humanos colidem com o seu código ou com as suas telas:
 
-- *Affordances* (Acessibilidades): O conjunto de ações possíveis que um objeto permite, intencionais ou não. No código, métodos public em uma classe são affordances expostas para consumo externo.
+- *Affordances* (Acessibilidades): O conjunto de ações possíveis que um objeto permite, intencionais ou não. No código, métodos public em uma classe são affordances expostas para consumo externo.
 - *Signifiers* (Significadores): As sinalizações que indicam quais daquelas *affordances* são recomendadas e seguras. No código, o prefixo _ em métodos Python atua como um anti-significador: a capacidade técnica de execução existe, mas a convenção sinaliza que se trata de uma operação interna restrita.
 
 #### O Semáforo de Capacidades
@@ -342,7 +348,7 @@ O Efeito Poste descreve a tendência de gastar energia otimizando o que é fáci
 
 É o caso do desenvolvedor que consome duas semanas otimizando um algoritmo local de *O(N²)* para *O(N log N)* para economizar 15 milissegundos, enquanto a tela inicial continua bloqueada por 4 segundos aguardando chamadas síncronas a serviços terceiros lentos.
 
-#### Estudo de Caso: Stripe &amp; Shopify — Disponibilidade sobre Consistência Imediata
+#### Estudo de Caso: Stripe & Shopify — Disponibilidade sobre Consistência Imediata
 
 Ao liquidar transações em plataformas parceiras massivas (como a Shopify), a Stripe calculava e persistia as taxas de repasse de forma síncrona na mesma transação de *checkout* para manter consistência estrita.
 
