@@ -10,12 +10,17 @@ tags:
 - Hardware
 description: Como construir um sistema de looping de vídeo automatizado e sincronizado
   remotamente usando Raspberry Pi, scripts em bash e monitoramento inotify.
+image: /assets/images/1_1-TBFdfsQVQHGONx4vJz_A.jpeg
+image_caption: Raspberry Pi 3 model B+ 1GB de RAM
 ---
 
 
 Sabe aquele brinquedo que tu sempre quis brincar, desmontar e entender como funciona? Tipo o Atari que tu teves na infância? Ok, no meu caso um CCE Supergame mas né… Anos 80, portos fechados, a gente nem era tão exigente com as marcas naquela época… Enfim, sempre me senti assim com o Raspberry Pi.
 
 O Raspberry Pi é um “miniPC” de baixíssimo custo. Tu encontras a versão mais potente dele, a Model B+, por cerca de U$40,00. Sim o “PC” completo, com processador Quad Core 1.2GHz, 4 portas USB, rede wifi e RJ-45, saída HDMI e 1GB de RAM por 40 “trumps”?! É muito barato! Lembrando que outras versões não tão atuais do PCzinho com menos processamento e RAM são ainda mais baratas! Chegando a versões de U$20,00 ou menos.
+
+{% include figure image_path="/assets/images/1_1-TBFdfsQVQHGONx4vJz_A.jpeg" caption="Raspberry Pi 3 model B+ 1GB de RAM" alt="Raspberry Pi 3 model B+ 1GB de RAM" %}
+
 
 Agora tu deves estar se perguntando: “Tá! Mas o que eu farei com um Hardware tão modesto?” Bom, existe uma série de utilidades pro PCzinho. Sério são muitas mesmo! Uma olhada nesse site de projetos já te deixa envolvido por horas a fio.
 
