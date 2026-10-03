@@ -21,7 +21,7 @@ layout: default
 
   {% if page.image %}
   <figure class="w-100 mv4 ph0" style="width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
-      <img class="w-100 db" style="max-height: 85vh; width: 100%; object-fit: contain; background-color: #0d1117;" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      <img class="w-100 db" style="width: 100%; height: auto; display: block;" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
       {% if page.image_caption %}
       <figcaption class="f6 gray tc mt2 i">{{ page.image_caption }}</figcaption>
       {% endif %}
