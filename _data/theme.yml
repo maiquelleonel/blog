@@ -71,7 +71,7 @@ text:
     caption           : Imagem
 
     # Home Layout Settings
-    post_limit        : 3
+    post_limit        : 6
     read_more         : Leia mais
     latest_articles   : Últimos posts
     full_archive      : Todos os posts
