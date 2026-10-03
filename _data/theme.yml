@@ -48,7 +48,7 @@ share_icons       : true
 category_tag_list : true
 # Share Icons
 twitter_icon      : true
-facebook_icon     : true
+facebook_icon     : false
 google_plus_icon  : false
 
 # Disqus Comments

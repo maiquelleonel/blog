@@ -4,11 +4,11 @@
 lang        : "pt-br"
 logo        :
 title       : "Maiquel Leonel"
-description : "Meu blog sobre assuntos que gosto e repositório de coisas legais"
+description : "Ensaios sobre arquitetura de software, IA agêntica, FinOps e engenharia na prática."
 author      : "Maiquel Leonel"
 email       : maiquel@maiquelleonel.com.br
 baseurl     : "/" # the subpath of your site, e.g. /blog
-url         : "http://blog.maiquelleonel.com.br"
+url         : "https://blog.maiquelleonel.com.br"
 date_format : "%-d %b %Y"
 port        : 4000
 
