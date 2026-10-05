@@ -8,13 +8,13 @@
     {% assign tags = page.tags %}
   {% endif %}
 
-  {% for category in categories %}
-    <a class="f5 br3 mt2 mr1 ph3 pv2 link black-70 bg-light-gray hover-bg-near-white grow" href="{{ "/category/" | absolute_url }}{{ category | slugify }}/">{{ category }}</a>
-  {% endfor %}
+  <div class="mv4">
+      {% for category in page.categories %}
+      <a class="f5 br3 mt2 mr1 ph3 pv2 link black-70 bg-light-gray hover-bg-near-white grow" href="{{ "/category/" | relative_url }}{{ category | slugify }}/">{{ category }}</a>
+      {% endfor %}
 
-  {% for tag in tags %}
-    <a class="f5 br3 mt2 mr1 ph3 pv2 link black-70 bg-light-gray hover-bg-near-white grow" href="{{ "/tag/" | absolute_url }}{{ tag | slugify }}/">{{ tag }}</a>
-  {% endfor %}
-
-</div>
+      {% for tag in page.tags %}
+      <a class="f5 br3 mt2 mr1 ph3 pv2 link black-70 bg-light-gray hover-bg-near-white grow" href="{{ "/tag/" | relative_url }}{{ tag | slugify }}/">{{ tag }}</a>
+      {% endfor %}
+  </div>
 {% endif %}

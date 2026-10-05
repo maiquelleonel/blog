@@ -52,7 +52,7 @@ A introdução de modelos **System 1** cria uma camada de controle determinísti
 
 Para entender o ganho de eficiência, é necessário contrastar a física computacional dos dois tipos de rede.
 
-### O Gargalo Auto-regressivo ($O(N)$)
+### O Gargalo Auto-regressivo `O(N)`
 Modelos como GPT-4o e Claude geram texto token por token. Para devolver um JSON com 50 tokens (ex.: `{"allowed": true, "why": "safe"}`), a GPU precisa executar **50 passagens completas na rede de forma estritamente sequencial**, acumulando latência a cada palavra e consumindo largura de banda no recálculo contínuo do KV-Cache.
 
 ### A Mecânica de Passo Único do Encoder
@@ -158,8 +158,8 @@ Na análise prática apresentada por Simon Scrapes[^3], o retorno da inferência
 }
 ```
 
-* **`Noul` (Booleano / Sim-Não):** Projeta a ativação via Sigmoid ($\sigma(z) = \frac{1}{1 + e^{-z}}$), retornando a probabilidade estatística contínua entre `0.0` e `1.0`.
-* **`Choice` (Classificação Categórica):** Aplica Softmax ($\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum e^{z_j}}$) sobre as opções fornecidas, garantindo que a soma de todas as probabilidades seja exatamente `1.0` e expondo a distribuição completa de probabilidades.
+* **`Noul` (Booleano / Sim-Não):** Projeta a ativação via Sigmoid (&sigma;(z) = 1 / (1 + e<sup>-z</sup>)), retornando a probabilidade estatística contínua entre `0.0` e `1.0`.
+* **`Choice` (Classificação Categórica):** Aplica Softmax (Softmax(z<sub>i</sub>) = e<sup>z<sub>i</sub></sup> / &sum; e<sup>z<sub>j</sub></sup>) sobre as opções fornecidas, garantindo que a soma de todas as probabilidades seja exatamente `1.0` e expondo a distribuição completa de probabilidades.
 * **`Score` (Rubrica Ordinal Ponderada):** Aplica regressão linear sobre uma escala finita de pesos inteiros previamente calibrados.
 
 ### O Papel Matemático do *Confidence Score*

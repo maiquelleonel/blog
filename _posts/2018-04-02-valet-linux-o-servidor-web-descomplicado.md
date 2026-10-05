@@ -9,11 +9,11 @@ tags:
   - nginx
   - php
 category: "desenvolvimento web"
+image: https://cdn-images-1.medium.com/max/800/1*Y7Uj0OjcIP5eFHdkQQRUmA.png
+image_caption: 'O servidor "de bolso"'
 ---
 
 O [Laravel](https://laravel.com/) possui uma série de facilidades em termos de ambiente pro desenvolvedor. Existe um cara chamado [Homestead](https://laravel.com/docs/5.6/homestead), um ambiente parrudo e com muita coisa otimizada pro Laravel. Porém foi um carinha chamado Valet que roubou minha atenção.
-
-{% include figure image_path="https://cdn-images-1.medium.com/max/800/1*Y7Uj0OjcIP5eFHdkQQRUmA.png" caption='O servidor "de bolso"' %}
 
 O Valet é um ambiente de desenvolvimento minimalista e altamente descomplicado, otimizado para o Laravel e sem uma grande parafernália de instrumentos e configurações por parte do desenvolvedor. Basta clonar o código, apontar o navegador pra pasta do projeto e pronto! Tudo funcionando nos “trinks”! Originalmente liberado para Mac, no github encontrei o [Valet para Linux](https://laravel.com/docs/5.6/valet), com um port bem fiel ao original.
 

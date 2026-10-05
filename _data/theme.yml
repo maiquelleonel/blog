@@ -47,7 +47,7 @@ share_icons       : true
 # Show post categories & tags
 category_tag_list : true
 # Share Icons
-twitter_icon      : true
+twitter_icon      : false
 facebook_icon     : false
 google_plus_icon  : false
 

@@ -41,6 +41,9 @@ include:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - .bundle/
 
 
 ################################
@@ -67,10 +70,8 @@ social:
   links:
     - https://maiquelleonel.medium.com
     - https://github.com/maiquelleonel
-    - https://dev.to/maiquelleonel-
-
-twitter:
-  username: maiquelleonel
+    - https://dev.to/maiquelleonel
+    - https://www.linkedin.com/in/maiquelleonel
 
 facebook:
   app_id:

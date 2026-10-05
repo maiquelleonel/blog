@@ -18,11 +18,19 @@
 
     {% for post in page.posts %}
       <article class="f4 lh-copy fw3 pb4 bb b--light-gray">
-        <div class="f5 fw6 lh-title ttu tracked mv4"><time>{{ post.date | date: "%b %Y" }}</time></div>
+        {% if post.image %}
+        <a class="db mb3" href="{{ post.url | relative_url }}">
+          <img class="w-100 br2 shadow-1 db" style="max-height: 360px; object-fit: cover;" src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
+        </a>
+        {% endif %}
+        <div class="f5 fw6 lh-title ttu tracked mv3"><time>{{ post.date | date: "%b %Y" }}</time></div>
         <a class="link black-80 hover-bg-light-silver hover-black-50" href="{{ post.url | relative_url }}">
           <h3 class="f2 fw6 lh-title mb0">{{ post.title | escape }}</h3>
         </a>
-        <p class="f4 fw3 lh-copy mv2">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+        {% if post.subtitle %}
+        <h3 class="f4 fw4 silver mt1 mb2">{{ post.subtitle }}</h3>
+        {% endif %}
+        <p class="f4 fw3 lh-copy mv2">{{ post.description | default: post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
         <div class="f5 fw3 silver mt0">
           {% if post.last_modified_at %}
           <span>{{ site.data.theme.text.updated }} <time>{{ post.last_modified_at | date: site.date_format }}</time></span>

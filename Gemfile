@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 # Jekyll
 gem "jekyll"
+gem "kramdown-parser-gfm"
+gem "webrick"
 
 # Theme
 gem "minimal-jekyll-theme"

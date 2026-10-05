@@ -3,9 +3,8 @@ layout: default
 ---
 
 <main class="flex flex-column items-center w-100">
-  <article class="mw8 w-100 ph2">
-    <header class="{% if page.post_meta == false %}mt5{% endif %}">
-
+  <article class="w-100">
+    <header class="mw8 center ph3 ph2-ns {% if page.post_meta == false %}mt5{% endif %}">
     {% unless page.header.layout == "hero" %}
         <h1 class="f2 fw6 lh-title mb1">{{ page.title }}</h1>
         {% if page.subtitle %}
@@ -15,23 +14,22 @@ layout: default
     {% if site.data.theme.post_meta %}
     {% include post_meta.html %}
     {% endif %}
-
     </header>
 
     {% if page.image %}
-    <figure class="w-100 mv4 ph0">
-        <img class="w-100 db" style="width: 100%; height: auto; display: block;" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    <figure class="post-hero-image w-100 mv4 ph0 tc">
+        <img class="w-100 db" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         {% if page.image_caption %}
-        <figcaption class="f6 gray tc mt2 i">{{ page.image_caption }}</figcaption>
+        <figcaption class="f6 gray tc mt2 i mw8 center ph3">{{ page.image_caption }}</figcaption>
         {% endif %}
     </figure>
     {% endif %}
 
-    <div class="mw8 w-100 f4 f3-ns fw3 lh-copy mb0">
+    <div class="mw8 center ph3 ph2-ns f4 f3-ns fw3 lh-copy mb0">
         {{ content }}
     </div>
 
-    <div class="mw8 w-100 lh-copy">
+    <div class="mw8 center ph3 ph2-ns lh-copy">
         {% if site.data.theme.category_tag_list %}
             {% include category_tag_list.html %}
         {% endif %}

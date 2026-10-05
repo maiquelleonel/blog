@@ -7,17 +7,49 @@
 // Set default font
 html {
   font-family: $font-family;
+  background-color: #121212;
+  color: #d1d5db;
 }
 
-body { background-color: rgba(243, 243, 243, 0.3) }
+body {
+  background-color: #121212;
+  color: #d1d5db;
+}
+
 // Links
 a {
-  color: $link;
+  color: #60a5fa;
   font-weight: 400;
   &:hover {
-    color: $hover;
+    color: #93c5fd;
   }
 }
+
+a.link.black-80,
+a.link.black-90,
+.nav-link-item {
+  color: #e5e7eb !important;
+
+  &:hover {
+    color: #60a5fa !important;
+  }
+}
+
+// Headings & Text
+h1, h2, h3, h4, h5, h6,
+.black-80, .black-90, .black-70,
+.site-brand-title {
+  color: #f3f4f6 !important;
+}
+
+p, li, blockquote, .lh-copy {
+  color: #d1d5db;
+}
+
+.silver, .gray, figcaption {
+  color: #9ca3af !important;
+}
+
 .clear { clear:both }
 .author-links a {
     float: left;
@@ -28,12 +60,16 @@ a {
     max-width: 3rem;
     min-width: 1.5rem;
 }
-.author-name { clear: none; min-width: 9rem; }
+.author-name { clear: none; min-width: 9rem; color: #f3f4f6 !important; }
 figure { text-align: center }
 a.nested-author-cta {
-  color: $author-cta-link;
+  color: #34d399 !important;
+  border-color: #059669 !important;
+  background-color: rgba(5, 150, 105, 0.1);
+
   &:hover {
-    color: $author-cta-hover;
+    background-color: rgba(5, 150, 105, 0.2);
+    color: #6ee7b7 !important;
   }
   float:left;
   clear:none;
@@ -582,3 +618,87 @@ p > code, td > code {
   .bg-lighten-50-l { box-shadow: inset 0 0 0 9999px rgba( 255, 255, 255, .5 ); }
   .bg-lighten-75-l { box-shadow: inset 0 0 0 9999px rgba( 255, 255, 255, .75 ); }
 }
+
+// Medium-style Full Bleed Post Hero Image
+.post-hero-image {
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ==========================================
+// Permanent Dark Theme Styling (Medium Dark)
+// ==========================================
+
+// Borders & Dividers
+.bb, .bt, .ba, .b--light-gray, hr {
+  border-color: #27272a !important;
+}
+
+// Tags and Category Pills
+.bg-light-gray {
+  background-color: #1f2937 !important;
+  color: #9ca3af !important;
+  border: 1px solid #374151;
+
+  &:hover {
+    background-color: #374151 !important;
+    color: #f3f4f6 !important;
+  }
+}
+
+// Inline Code & Pre Blocks
+p > code, td > code, li > code {
+  background-color: #1e293b !important;
+  color: #38bdf8 !important;
+  border: 1px solid #334155;
+}
+
+pre, .highlight {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+blockquote {
+  border-left-color: #3b82f6 !important;
+  color: #9ca3af !important;
+}
+
+// Tables
+table {
+  border-color: #27272a;
+
+  th {
+    background-color: #18181b;
+    color: #f3f4f6;
+    border-color: #27272a;
+  }
+
+  td {
+    border-color: #27272a;
+  }
+}
+
+// Disqus Comments Container
+#disqus_thread {
+  color-scheme: dark !important;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  min-height: 250px;
+}
+
+

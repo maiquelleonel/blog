@@ -1,21 +1,21 @@
 <div class="flex justify-between items-center mw8 w-100 {% if page.sidebar %}center-l{% else %}center{% endif %} pv3 ph2">
 {% if page.header.navigation == 'fancy' %}
-<a class="white hover-white dim link f3 nowrap fw4 mr3 w-80" href="{{ '/' | absolute_url }}" title="Home">{{ site.title }}</a>
+<a class="white hover-white dim link f3 nowrap fw4 mr3 w-80 site-brand-title" href="{{ '/' | relative_url }}" title="Home">{{ site.title }}</a>
 {% else %}
-<a class="black-80 hover-black-60 dim nowrap link f3 fw4 mr3 w-80" href="{{ '/' | absolute_url }}" title="Home">{{ site.title }}</a>
+<a class="black-80 hover-black-60 dim nowrap link f3 fw4 mr3 w-80 site-brand-title" href="{{ '/' | relative_url }}" title="Home">{{ site.title }}</a>
 {% endif %}
 
-  <div class="flex-l items-center">
-    <nav class="nowrap overflow-x-auto">
+  <div class="flex items-center">
+    <nav class="nowrap overflow-x-auto flex items-center">
     {% for link in site.data.theme.navigation.main %}
       {% if link.url contains 'http' %}
         {% assign domain = '' %}
       {% elsif link.url contains 'mailto' %}
         {% assign domain = '' %}
       {% else %}
-        {% assign domain = site.url | append: site.baseurl %}
+        {% assign domain = site.baseurl %}
       {% endif %}
-      <a href="{{ domain }}{{ link.url }}" class="{% if page.header.navigation == 'fancy' %}white hover-white dim{% else %}black-80 hover-black-80{% endif %} link f5 fw3 mr3 mt2" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a>
+      <a href="{{ domain }}{{ link.url }}" class="{% if page.header.navigation == 'fancy' %}white hover-white dim{% else %}black-80 hover-black-80{% endif %} link f5 fw3 mr3 nav-link-item" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a>
     {% endfor %}
     </nav>
   </div>
