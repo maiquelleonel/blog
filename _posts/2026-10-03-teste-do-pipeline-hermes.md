@@ -7,6 +7,7 @@ tags:
 - Python
 - DevOps
 - Finops
+permalink: /teste-do-pipeline-hermes/
 subtitle: Validando a esteira determinística do Obsidian ao Jekyll, Dev.to e Medium
   com zero fricção.
 image: /assets/images/pit_of_success.png
