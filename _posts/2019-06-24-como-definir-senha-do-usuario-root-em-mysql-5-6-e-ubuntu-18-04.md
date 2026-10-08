@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Como definir senha do usuário root em MySQL 5.6+ e Ubuntu 18.04+"
 seo_title: "Como definir senha do root no MySQL 5.6+ e Ubuntu 18.04+ | Maiquel Leonel"
 seo_description: "Dica rápida de terminal sobre como alterar o plugin de autenticação e definir a senha de root no MySQL em versões modernas do Ubuntu."
@@ -19,12 +20,7 @@ devto_url: ""
 description: "Uma dica rápida de terminal sobre como alterar a senha do usuário root do MySQL 5.6+ no Ubuntu 18.04 e mais recentes."
 ---
 
-# Como definir senha do usuário root em MySQL 5.6+ e Ubuntu 18.04+
-
 Uma dica rápida para definir a senha para o usuário `root` nas versões mais recentes do Ubuntu.
-
-![[0_ShAvuMKBue1nlPec.jpg|Photo by James Sutton on Unsplash]]
-*Photo by [James Sutton](https://unsplash.com/@jamessutton_photography) on [Unsplash](https://unsplash.com/)*
 
 ---
 
