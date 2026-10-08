@@ -661,10 +661,10 @@ p > code, td > code {
 }
 
 // Inline Code & Pre Blocks
-p > code, td > code, li > code {
-  background-color: #1e293b !important;
-  color: #38bdf8 !important;
-  border: 1px solid #334155;
+p > code, td > code, li > code, blockquote > code {
+  background-color: #0d1117 !important;
+  color: #98c379 !important;
+  border: 1px solid #30363d;
 }
 
 pre, .highlight {
