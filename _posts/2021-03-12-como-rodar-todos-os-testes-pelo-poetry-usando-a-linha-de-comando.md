@@ -7,7 +7,7 @@ date: 2021-03-12
 author: "Maiquel Leonel"
 status: published
 image: /assets/images/capa_poetry.png
-image_caption: "Atalho customizado no Poetry para rodar Pytest"
+image_caption: "Setup de terminal e execução automatizada de testes"
 tags:
   - python
   - poetry
@@ -45,6 +45,8 @@ tests = "scripts:tests"
 ```
 
 E *that’s it!* Agora basta rodar `poetry run tests` para que o poetry rode todos os arquivos de testes salvos na pasta `tests/*`.
+
+{% include figure image_path="/assets/images/1_JUTTqaxff9SKPNg4zuFDHA.png" caption="Execução dos testes com o comando customizado no Poetry" alt="Execução dos testes com o comando customizado no Poetry" %}
 
 Massa, né?!
 
