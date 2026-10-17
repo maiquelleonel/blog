@@ -5,3 +5,21 @@ _site
 .sass-cache
 *.gem
 .vscode
+
+# Environments & credentials
+*.env*
+.env
+.env.*
+
+# Backups & temporary editor files
+*.bak
+*.old
+*.swp
+*~
+*.sql
+
+# Logs & IaC states
+*.log
+.terraform/
+*.tfstate*
+
