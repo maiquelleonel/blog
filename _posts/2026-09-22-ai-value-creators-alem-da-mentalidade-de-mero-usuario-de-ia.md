@@ -5,9 +5,11 @@ author: Maiquel Leonel
 date: '2026-09-22'
 tags:
 - Artificial Intelligence
-- Fin Ops
-- Sl Ms
 - Software Engineering
+- Technology
+- SLMs
+- Finops
+permalink: /ai-value-creators-alem-da-mentalidade-de-mero-usuario-de-ia/
 description: Por que alugar inteligência genérica de terceiros destrói a margem e
   não cria fosso competitivo. Como se tornar um AI Value Creator com dados próprios
   e SLMs eficientes.
@@ -36,8 +38,7 @@ A popularização dos Modelos de Linguagem de Larga Escala (LLMs) marca o que os
 
 O erro da liderança corporativa é confundir a facilidade da interface com estratégia de negócio.
 
-```
-  MINDSET TRADICIONAL (+AI)             MINDSET NATIVO (AI+)  
+MINDSET TRADICIONAL (+AI)                  MINDSET NATIVO (AI+)  
 ┌────────────────────────────┐  ┌────────────────────────────────┐  
 │  Processo de Negócio       │  │      Supervisão Humana         │  
 │  Legado e Fragmentado      │  │   (Estratégia e Alinhamento)   │  
@@ -48,7 +49,6 @@ O erro da liderança corporativa é confundir a facilidade da interface com estr
                                 │ Arquitetura de Informação (IA) │  
                                 │ (Data Fabric, Lakehouse, RAG)  │  
                                 └────────────────────────────────┘
-```
 
 A maioria dos orçamentos corporativos é consumida na mentalidade **+AI** (_“vamos colocar um pouco de IA nos sistemas que já temos”_). Cria-se um assistente virtual por cima de um ERP obsoleto ou um gerador de e-mails em cima de um CRM bagunçado. Com isso, o resultado é previsível: **automatiza-se a ineficiência**.
 
@@ -111,7 +111,6 @@ O erro comum é focar 90% do orçamento nos **Modelos** (comprando acessos e GPU
 
 Para a equação de sucesso não virar apenas um punhado de scripts soltos na nuvem, o livro propõe uma arquitetura corporativa em cinco camadas integradas:
 
-```
 ARQUITETURA DA PLATAFORMA DE IA (LAYER CAKE)  
 ┌───────────────────────────────────────────────────────────┐  
 │ 5. Agentes e Assistentes (Automação de tarefas e AX)      │  
@@ -124,7 +123,6 @@ ARQUITETURA DA PLATAFORMA DE IA (LAYER CAKE)
 ├───────────────────────────────────────────────────────────┤  
 │ 1. Base Híbrida & Aberta (On-premises, Edge e Multi-Cloud)│  
 └───────────────────────────────────────────────────────────┘
-``` 
 
 1. **A Base Híbrida e Aberta:** A ilusão da nuvem única morreu. A infraestrutura precisa rodar onde o dado e a latência exigirem: no data center local, na borda (edge) ou em múltiplos provedores de nuvem, sempre ancorada em padrões abertos.
 2. **Serviços de Dados (Data Fabric & Data as a Product):** O mantra dos autores é categórico: _sua inteligência artificial (AI) precisa de uma arquitetura de informação (IA)_. Sem um tecido de dados que unifique o acesso e trate dados como produtos com donos de domínio definidos, os modelos operam sobre silos desconectados.
@@ -168,7 +166,6 @@ O pesadelo de JOBOL: quando modernizar 230 Bi de linhas de mainframe não é só
 
 No Capítulo 4, os autores apresentam a Curva de Criação de Valor do Caso de Uso (_The Use Case Value Creation Curve_), mostrando a trajetória necessária para transformar curiosidade técnica em retorno econômico:
 
-```
 TRAJETÓRIA DE MATURAÇÃO DOS CASOS DE USO  
 ┌─────────────────────────────────────────────────────────────┐  
 │ 1. Experimentação       │ Testes soltos com prompts         |  
@@ -187,7 +184,6 @@ TRAJETÓRIA DE MATURAÇÃO DOS CASOS DE USO
 │ 6. Agentes Autônomos    │ Sistemas com ferramentas,         |   
 |                         |               memória e loop.     │   
 └─────────────────────────────────────────────────────────────┘ 
-``` 
 
 A virada de chave acontece quando a empresa cruza o Ponto de Inflexão de Valor: sair da perfumaria e colocar a IA para sustentar o próprio coração operacional da tecnologia.
 
@@ -267,7 +263,6 @@ Uma organização madura não adota um único modelo universal. Um marceneiro n�
 
 Um dos avanços mais pragmáticos em arquitetura corporativa é o **Roteamento de Modelos** (_Model Routing_). Em vez de enviar todas as requisições para o modelo mais caro e pesado, um classificador leve avalia a complexidade do prompt e direciona a carga de trabalho para a ferramenta ideal.
 
-```
                                  ┌───────────────────────────────┐  
                                  │      SLM Especializado        │  
                      ┌─── 10% ──>│   (3B-7B Params / Baixo Custo)│  
@@ -280,7 +275,6 @@ Um dos avanços mais pragmáticos em arquitetura corporativa é o **Roteamento d
                       └── 56% ──>│     Modelo de Fronteira       │  
                                  │   (70B+ Params / Raciocínio)  │  
                                  └───────────────────────────────┘
-``` 
 
 Em estudos conduzidos pelo _MIT-IBM Watson AI Lab_ utilizando a suíte de avaliação HELM de Stanford:
 
@@ -324,7 +318,6 @@ O livro recorre a uma analogia cristalina: imagine que alguém lhe entrega um co
 
 Com IA corporativa acontece o mesmo. Se você faz fine-tuning dos seus dados proprietários mais estratégicos em cima de modelos fechados e opacos, cujos dados de pré-treino você desconhece (muitas vezes raspados de datasets pirateados como o _Books3_), você contamina sua limonada com passivos jurídicos, vieses ocultos e falta de reprodutibilidade. É por isso que famílias de modelos como o **IBM Granite** publicam abertamente a linhagem completa dos seus dados de treino sob licença permissiva Apache 2.0: você precisa de um copo transparente antes de misturar o seu conhecimento de negócio.
 
-```
 FLUXO DE ALINHAMENTO INCREMENTAL COM INSTRUCTLAB  
 ┌────────────────┐    ┌──────────────────┐    ┌──────────────────┐  
 │ Taxonomia YAML │    │ Geração Sintética│    │ Validação Crítica│  
@@ -338,7 +331,6 @@ FLUXO DE ALINHAMENTO INCREMENTAL COM INSTRUCTLAB
 │ (Granite /     │<───│ (Mescla Sintético│<───│ Modelo Alinhado  │  
 │  Llama Open)   │    │  com Base Preven)│    │ (Sem Forks)      │  
 └────────────────┘    └──────────────────┘    └──────────────────┘
-```
 
 O InstructLab resolve o problema do “rebanho de forks” permitindo que especialistas de negócio e desenvolvedores submetam habilidades e conhecimentos em arquivos YAML estruturados via Pull Requests no GitHub:
 
@@ -395,7 +387,6 @@ O mesmo princípio fundamenta o **Xadrez Centauro**, criado por Garry Kasparov a
 
 Para estruturar um programa corporativo de habilidades sem cair na armadilha de autoavaliações subjetivas (_“é como pedir para o gato avaliar sua habilidade de caçar”_), a IBM adotou uma taxonomia baseada em **verbos de ação verificáveis**:
 
-```
 ESTRUTURA DE MATURIDADE DE HABILIDADES TÉCNICAS  
 ┌──────────────────────────────────────────────────────────────┐  
 │ Lvl 1: FRAME     │ Enquadrar a dor de negócio do cliente.    │  
@@ -407,7 +398,6 @@ ESTRUTURA DE MATURIDADE DE HABILIDADES TÉCNICAS
 │ Lvl 5: TEACH     │ Produzir material técnico, artigos e      |  
 |                  |                             formar times. │  
 └──────────────────────────────────────────────────────────────┘
-``` 
 
 No caso de estudo do **Watsonx Corporate Skills Challenge**, a IBM engajou voluntariamente ~160.000 funcionários (60% da força de trabalho global), organizados em mais de 30.000 equipes. O resultado foram 12.000 protótipos funcionais submetidos. Em um dos projetos vencedores, engenheiros de confiabilidade de sites (SREs) que gastavam 116 horas semanais respondendo a dúvidas rotineiras de desenvolvimento reduziram esse tempo para **menos de 2 minutos por chamado, atingindo 99,98% de deflexão** com busca semântica sobre a base de conhecimento interno.
 
@@ -483,3 +473,4 @@ Como pontuam Rob Thomas, Paul Zikopoulos e Kate Soule: a tecnologia não é mág
 
 - **GitHub:** [@maiquelleonel](https://github.com/maiquelleonel)
 - **LinkedIn:** [/in/maiquelleonel](https://www.linkedin.com/in/maiquelleonel)
+
