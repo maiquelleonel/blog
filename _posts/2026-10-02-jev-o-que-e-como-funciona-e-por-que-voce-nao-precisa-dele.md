@@ -133,7 +133,7 @@ O encoder processa a atenção cruzada entre todos os campos do estado simultane
 
 ### A Saída Tipada e as Três Primitivas Matemáticas
 
-Na análise prática apresentada por Simon Scrapes[^3], o retorno da inferência não é um texto corrido que exige parsers defensivos, mas uma estrutura numérica calibrada baseada em três primitivas fundamentais:
+Na análise prática apresentada por Simon Scrapes[^2], o retorno da inferência não é um texto corrido que exige parsers defensivos, mas uma estrutura numérica calibrada baseada em três primitivas fundamentais:
 
 ```json
 {
@@ -254,7 +254,7 @@ def evaluate_command_execution(
 
 ## 4. Os 10 Padrões Arquiteturais de Decisão na Engenharia Agêntica
 
-Seguindo o vídeo-ensaio de **IndyDevDan**[^2], podemos dividir a aplicação dos sistemas System 1 em 10 níveis de maturidade:
+Seguindo o vídeo-ensaio de **IndyDevDan**[^3], podemos dividir a aplicação dos sistemas System 1 em 10 níveis de maturidade:
 
 {% include figure image_path="/assets/images/10_lvl_validate_agentic_system.png" caption="Matriz de maturidade: os 10 padrões arquiteturais de uso de modelos de decisão rápida em esteiras de agentes autônomos." alt="Matriz de maturidade: os 10 padrões arquiteturais de uso de modelos de decisão rápida em esteiras de agentes autônomos." %}
 
@@ -336,7 +336,7 @@ No entanto, sob a ótica de arquitetura de sistemas e governança corporativa, *
 
 ### O Contraponto: Como o Laya Inaugurou a Alternativa de Pesos Abertos
 
-É aqui que a história ganha um contorno importante de engenharia: **o Jev não inventou essa roda sozinho**. Ele é a face comercial empacotada de uma técnica que a comunidade de código aberto já havia estruturado com o **Laya** (desenvolvido pela ConvAI), sustentado pelo **ModernBERT-large**[^5].
+É aqui que a história ganha um contorno importante de engenharia: **o Jev não inventou essa roda sozinho**. Ele é a face comercial empacotada de uma técnica que a comunidade de código aberto já havia estruturado com o **Laya** (desenvolvido pela ConvAI), sustentado pelo **ModernBERT-large**[^4].
 
 Com 421 milhões de parâmetros sob licença Apache 2.0, o **ModernBERT** é leve o suficiente para rodar com menos de 1.5 GB de VRAM ou diretamente em CPU quantizada via INT8. Sua arquitetura traz suporte nativo a 8.192 tokens com *Rotary Position Embeddings (RoPE)* e *FlashAttention-2*, permitindo processar arquivos inteiros de código ou payloads densos em passo único. Uma vez treinado, o modelo pode ser compilado para o runtime **ONNX**, funcionando como um artefato local autocontido no contêiner Docker, no terminal da IDE ou na borda da VPC.
 
@@ -352,7 +352,7 @@ Se você tentar fazer um *hot swap* do modelo base sem calibração prévia (*ze
 
 ### O Ponto Cego do Modelo Base (*Zero-Shot Noise*)
 
-Em análises práticas conduzidas pelo **Prof. Sandeco**[^4], ao submeter o **Laya base (*out-of-the-box*)** a um teste real de triagem em 1.000 mensagens de transações financeiras para detecção de golpes:
+Em análises práticas conduzidas pelo **Prof. Sandeco**[^5], ao submeter o **Laya base (*out-of-the-box*)** a um teste real de triagem em 1.000 mensagens de transações financeiras para detecção de golpes:
 
 * **Velocidade Bruta:** O modelo executou 10 vezes mais rápido que LLMs generativos tradicionais.
 * **O Ruído Estatístico:** Por estar operando em modo *zero-shot* (sem calibração no vocabulário específico do domínio), o Laya base gerou **282 falsos positivos**, marcando transações legítimas como fraudulentas.
@@ -420,11 +420,11 @@ Como está desenhada a arquitetura de controle e segurança no seu time hoje? Vo
 
 ---
 
-## 📚 Fontes e Leituras Recomendadas
+#### 📚 Fontes e Leituras Recomendadas
 
 [^1]: **Daniel Kahneman** — [*Rápido e Devagar: Duas Formas de Pensar*](https://pt.wikipedia.org/wiki/Thinking,_Fast_and_Slow) (Objetiva, 2012).
-[^2]: **Dan Disler (IndyDevDan)** — [*10 Levels of Jev For Agentic Engineers*](https://www.youtube.com/watch?v=_U-O5lYhJ7Q) (YouTube, 2026).
-[^3]: **Simon Scrapes** — [*Jev for Claude: Every Jev Concept Explained*](https://www.youtube.com/watch?v=D-Z5HnLW_ho) (YouTube, 2026).
-[^4]: **Prof. Sandeco (Sandeco Macedo)** — [*Laya vs Jev: Velocidade máxima e custo zero!*](https://youtu.be/YGuLBJ6af_o) (YouTube, 2026).
-[^5]: **Answer.ai / LightOn** — [*ModernBERT: Bringing Modern Design to BERT*](https://huggingface.co/blog/modernbert) (Hugging Face / arXiv, 2024).
+[^2]: **Simon Scrapes** — [*Jev for Claude: Every Jev Concept Explained*](https://www.youtube.com/watch?v=D-Z5HnLW_ho) (YouTube, 2026).
+[^3]: **Dan Disler (IndyDevDan)** — [*10 Levels of Jev For Agentic Engineers*](https://www.youtube.com/watch?v=_U-O5lYhJ7Q) (YouTube, 2026).
+[^4]: **Answer.ai / LightOn** — [*ModernBERT: Bringing Modern Design to BERT*](https://huggingface.co/blog/modernbert) (Hugging Face / arXiv, 2024).
+[^5]: **Prof. Sandeco (Sandeco Macedo)** — [*Laya vs Jev: Velocidade máxima e custo zero!*](https://youtu.be/YGuLBJ6af_o) (YouTube, 2026).
 

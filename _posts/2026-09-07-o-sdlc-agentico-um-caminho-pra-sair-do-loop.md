@@ -15,11 +15,11 @@ image: /assets/images/capa_sdlc_loop_infernal.png
 image_caption: O loop infernal do Vibe Coding e a transição para o SDLC Agêntico
 ---
 
-Nas últimas semanas, enquanto pesquisava padrões para estruturar o desenvolvimento com IA além do _hype_ de autocompletes na IDE, assisti aos vídeos-ensaios de Dan Disler (_IndyDevDan_)¹ sobre fábricas de software autônomas. Me debrucei sobre o tema e devorei a excelente edição _pre-release_ do _The Agentic SDLC Handbook_² de Daniel Meppiel. E quando a Anthropic publicou na semana passada o seu _AI-Native SDLC Playbook_³, tudo se encaixou: decidi registrar o que aprendi consumindo esse material e como essa abordagem pode ser o caminho para amplificar de verdade o impacto da nossa entrega de software.
+Nas últimas semanas, enquanto pesquisava padrões para estruturar o desenvolvimento com IA além do _hype_ de autocompletes na IDE, assisti aos vídeos-ensaios de Dan Disler (_IndyDevDan_)[^1] sobre fábricas de software autônomas. Me debrucei sobre o tema e devorei a excelente edição _pre-release_ do _The Agentic SDLC Handbook_[^2] de Daniel Meppiel. E quando a Anthropic publicou na semana passada o seu _AI-Native SDLC Playbook_[^3], tudo se encaixou: decidi registrar o que aprendi consumindo esse material e como essa abordagem pode ser o caminho para amplificar de verdade o impacto da nossa entrega de software.
 
 Se a geração mecânica de código virou uma etapa rápida e barata, o gargalo da entrega se desloca para o que está ao redor. Sem redesenhar a definição de requisitos no início e a validação arquitetural no final, acelerar a digitação só serve para afogar a esteira mais rápido.
 
-No entanto, existe um abismo entre o modelo conceitual dos laboratórios de IA e a realidade de manter sistemas corporativos em produção. Segundo o relatório global do *Stack Overflow Developer Survey*⁴, mesmo com janelas de contexto saltando de 2k para mais de 1 milhão de tokens, o índice de satisfação dos desenvolvedores com tarefas complexas caiu. Estamos na infância da infraestrutura de LLMs: sobra capacidade bruta de processamento estatístico, mas faltam camadas maduras de arquitetura, isolamento e governança determinística.
+No entanto, existe um abismo entre o modelo conceitual dos laboratórios de IA e a realidade de manter sistemas corporativos em produção. Segundo o relatório global do *Stack Overflow Developer Survey*[^4], mesmo com janelas de contexto saltando de 2k para mais de 1 milhão de tokens, o índice de satisfação dos desenvolvedores com tarefas complexas caiu. Estamos na infância da infraestrutura de LLMs: sobra capacidade bruta de processamento estatístico, mas faltam camadas maduras de arquitetura, isolamento e governança determinística.
 
 Pagar licenças de plugins e pedir para o time "conversar com o código" cria uma armadilha operacional: manter o engenheiro preso no loop manual de cada prompt transforma a própria equipe no gargalo da esteira. É sobre como quebrar esse ciclo que vamos falar a seguir.
 
@@ -43,7 +43,7 @@ As falhas do agente decorrem principalmente de **assimetria de informação**:
 
 ## 2. O Business Case e a Lei de Amdahl: O Problema do Denominador
 
-Para lideranças de engenharia, a eficiência agêntica segue a **Lei de Amdahl**⁵: o ganho de velocidade de um sistema é limitado pela fração do processo que não pode ser acelerada.
+Para lideranças de engenharia, a eficiência agêntica segue a **Lei de Amdahl**[^5]: o ganho de velocidade de um sistema é limitado pela fração do processo que não pode ser acelerada.
 
 No ciclo clássico de entrega:
 
@@ -110,7 +110,7 @@ O teste do módulo *Growth Engine*, documentado no [Capítulo 5 do *The Agentic 
 
 O resultado: **os 15 agentes aprovaram o PR com nota máxima**, elogiando a estrutura, os testes e a tipagem. Trinta segundos depois, um arquiteto humano olhou o diff e barrou o deploy: o código violava uma política interna de segregação de dados europeus.
 
-O ponto é: regras contratuais e políticas internas da sua empresa **não existem nos dados de treino de modelos comerciais**. Sem guardrails locais explícitos, empilhar agentes para julgar agentes só produz *generalistas confiantes* validando o erro uns dos outros — caindo no que o próprio **Artigo 14 do EU AI Act**⁶ alerta sobre o *viés de automação*: a tendência de confiar cegamente na máquina e aprovar decisões por inércia.
+O ponto é: regras contratuais e políticas internas da sua empresa **não existem nos dados de treino de modelos comerciais**. Sem guardrails locais explícitos, empilhar agentes para julgar agentes só produz *generalistas confiantes* validando o erro uns dos outros — caindo no que o próprio **Artigo 14 do EU AI Act**[^6] alerta sobre o *viés de automação*: a tendência de confiar cegamente na máquina e aprovar decisões por inércia.
 
 ### A Estratégia de Fronteira (The Seam): Weak-Form vs. Strong-Form
 
@@ -266,25 +266,25 @@ Como interpretar esse indicador na prática:
 
 A evolução do desenvolvimento agêntico desloca o trabalho de engenharia da digitação mecânica para o **design e governança de fábricas de software**.
 
-Como resume o mantra de Dan Disler (*IndyDevDan*)¹: **se você está preso dentro do loop, você é o gargalo**. 
+Como resume o mantra de Dan Disler (*IndyDevDan*)[^1]: **se você está preso dentro do loop, você é o gargalo**. 
 
 Na prática, governar essa responsabilidade significa construir sistemas onde as especificações e o CI são tão determinísticos que, se você deletar o código hoje, o agente consegue reconstruí-lo do zero sem alucinar — uma abordagem que explorei no estudo de caso prático sobre [O Harness, SDD e Vibe Coding](https://medium.com/@maiquelleonel/o-harness-o-sdd-e-o-vibe-coding-uma-abordagem-de-engenharia-b14529e9c6c2).
 
-Nos próximos anos, a vantagem competitiva não com times que geram código mais rápido, mas aos engenheiros que dominarem a arte de governar a responsabilidade migrada para as máquinas⁷. Ficar na esteira como operador manual de prompts é uma escolha cara que culmina em fadiga e atrofia técnica.
+Nos próximos anos, a vantagem competitiva não com times que geram código mais rápido, mas aos engenheiros que dominarem a arte de governar a responsabilidade migrada para as máquinas[^7]. Ficar na esteira como operador manual de prompts é uma escolha cara que culmina em fadiga e atrofia técnica.
 
 Sair do loop é construir os **sistemas de governança capazes de direcionar e auditar a inferência probabilística dos modelos**.
 
 ---
 
-## 📚 Fontes e Leituras Recomendadas
+#### 📚 Fontes e Leituras Recomendadas
 
-1. **IndyDevDan (Dan Disler)** — [*FORGET Loop Engineering. Agentic Engineering is about THIS*](https://www.youtube.com/watch?v=VQy50fuxI34) (YouTube / Repositório: [`super-simple-software-factory`](https://github.com/disler/super-simple-software-factory)).
-2. **Daniel Meppiel** — [*The Agentic SDLC Handbook*](https://danielmeppiel.github.io/agentic-sdlc-handbook/) (incluindo o [*Case Study: Growth Engine*](https://danielmeppiel.github.io/agentic-sdlc-handbook/case-study-growth-engine.html), 2026).
-3. **Anthropic** — [*AI-Native SDLC Playbook: The SDLC in the Age of Agents*](https://claude.com/blog/the-ai-native-sdlc-playbook) (2026).
-4. **Stack Overflow** — [*Developer Survey: AI Sentiment, Tools and Workflow Frustrations*](https://survey.stackoverflow.co/) (2025).
-5. **Gene Amdahl** — [*Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* / Lei de Amdahl](https://en.wikipedia.org/wiki/Amdahl%27s_law) (AFIPS Conference Proceedings, 1967).
-6. **União Europeia** — [*EU Artificial Intelligence Act (Artigo 14: Supervisão Humana / Human Oversight)*](https://artificialintelligenceact.eu/article/14/) (Regulamento UE 2024/1689).
-7. **AgenticEngineering** — [*AI Coding Agents: Responsibility Migration in the New SDLC*](https://www.youtube.com/watch?v=vEBZO8dRsNU) (YouTube, 2026).
+[^1]: **IndyDevDan (Dan Disler)** — [*FORGET Loop Engineering. Agentic Engineering is about THIS*](https://www.youtube.com/watch?v=VQy50fuxI34) (YouTube / Repositório: [`super-simple-software-factory`](https://github.com/disler/super-simple-software-factory)).
+[^2]: **Daniel Meppiel** — [*The Agentic SDLC Handbook*](https://danielmeppiel.github.io/agentic-sdlc-handbook/) (incluindo o [*Case Study: Growth Engine*](https://danielmeppiel.github.io/agentic-sdlc-handbook/case-study-growth-engine.html), 2026).
+[^3]: **Anthropic** — [*AI-Native SDLC Playbook: The SDLC in the Age of Agents*](https://claude.com/blog/the-ai-native-sdlc-playbook) (2026).
+[^4]: **Stack Overflow** — [*Developer Survey: AI Sentiment, Tools and Workflow Frustrations*](https://survey.stackoverflow.co/) (2025).
+[^5]: **Gene Amdahl** — [*Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* / Lei de Amdahl](https://en.wikipedia.org/wiki/Amdahl%27s_law) (AFIPS Conference Proceedings, 1967).
+[^6]: **União Europeia** — [*EU Artificial Intelligence Act (Artigo 14: Supervisão Humana / Human Oversight)*](https://artificialintelligenceact.eu/article/14/) (Regulamento UE 2024/1689).
+[^7]: **AgenticEngineering** — [*AI Coding Agents: Responsibility Migration in the New SDLC*](https://www.youtube.com/watch?v=vEBZO8dRsNU) (YouTube, 2026).
 
 ---
 
