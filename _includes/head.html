@@ -12,8 +12,13 @@
   <!-- Atom Feed -->
   <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/minimal.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/minimal.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
