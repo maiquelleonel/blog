@@ -93,6 +93,7 @@ O REA não faz milagre nem usa magia negra. Ele funciona como uma ponte direta d
 - Ferramentas de descompilação sempre existiram no cinto de utilidades de hackers e pesquisadores de segurança. 
 - O salto do REA é transformar essas ferramentas em **serviços programáveis para LLMs**. Em vez de um humano navegar milhares de linhas de pseudocódigo C no Ghidra, o agente consome as rotinas via RPC, mapeia fluxos de controle e reescreve a lógica em Rust ou TypeScript com validação de tipagem em segundos.
 
+
 {% include figure image_path="/assets/images/pipeline-rea.png" caption="O pipeline do REA: Ghidra headless atuando como ferramenta MCP, enquanto o agente sintetiza contratos de tipo e recompila a implementação em Rust." alt="O pipeline do REA: Ghidra headless atuando como ferramenta MCP, enquanto o agente sintetiza contratos de tipo e recompila a implementação em Rust." %}
 
 ### O ArtCraft (`storytold/ArtCraft`): O Clean-Room Black-Box Industrializado
@@ -140,7 +141,7 @@ function _0x4f2a(e) {
 }
 ```
 
-O arquivo é repacotado e assinado localmente. Toda a validação de licença foi anulada em minutos, sem tocar em um único servidor.
+O arquivo é reempacotado e assinado localmente. Toda a validação de licença foi anulada em minutos, sem tocar em um único servidor.
 
 ---
 
