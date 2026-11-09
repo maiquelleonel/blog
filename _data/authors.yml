@@ -5,8 +5,8 @@ Maiquel Leonel:
   picture       : "https://avatars.githubusercontent.com/u/183268?v=4"
   url           : "/"
   email         : "maiquel@maiquelleonel.com.br"
-  bio           : "Principal Engineer & Cloud Architect. Focado em arquitetura de software, IA agêntica, governança de código (SDD/Harness) e FinOps de inferência local. Menos hype, mais fundamentos e cicatrizes reais de produção."
-  post_meta_bio : "Principal Engineer & Cloud Architect. Focado em arquitetura de software, IA agêntica, governança de código (SDD/Harness) e FinOps de inferência local. Menos hype, mais fundamentos e cicatrizes reais de produção."
+  bio           : "Principal Engineer & Cloud Architect. Arquitetura de software, sistemas agênticos, governança determinística de código (SDD/Harness) e FinOps em produção."
+  post_meta_bio : "Principal Engineer & Cloud Architect. Arquitetura de software, sistemas agênticos, governança determinística de código (SDD/Harness) e FinOps em produção."
   ctas:
     - name: "github"
       url: "https://github.com/maiquelleonel"
