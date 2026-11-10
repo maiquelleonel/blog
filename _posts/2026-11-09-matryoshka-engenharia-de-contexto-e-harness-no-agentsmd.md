@@ -2,7 +2,7 @@
 layout: post
 title: 'Matryoshka: Engenharia de Contexto e Harness no AGENTS.md'
 author: Maiquel Leonel
-date: '2026-11-01'
+date: '2026-11-09'
 tags:
 - Harness Engineering
 - Context Engineering
@@ -76,7 +76,7 @@ Na tabela acima, a coluna **`Cache Hits` (`2.385` no acumulado)** indica a quant
 
 Também dá para notar na tabela por que PRs curtos (como o `#2`, `#13` e `#20`, na faixa de 80 mil tokens divididos em subtasks rápidas) registraram `0` cache hits. Na API do Gemini, o *Context Caching* exige um piso mínimo de volume por requisição: começou em 32.768 tokens no *Explicit Caching* e hoje dispara via *Implicit Caching* a partir de **1.024 a 2.048 tokens** (linha Gemini 2.5 Flash/Pro) ou **4.096 tokens** (linhas Gemini 3). Nas entregas rápidas, os turnos rodaram abaixo desse piso. Já nas entregas mais densas, que acumularam de **500 mil a 1,4 milhão de tokens** (PRs `#10`, `#15`, `#24` e `#29`), a janela cruzou o piso logo nos primeiros turnos e engatou de 140 a 370 requisições cacheadas em sequência.
 
-Como próximo passo de roadmap (**Issue #31**, ainda em desenvolvimento e não mesclado na CLI atual), estamos projetando um **Fast-Gate de Sistema 1** integrado a encoders locais leves baseados em **Jev / ModernBERT / Laya ([`NandhaKishorM/laya`](https://github.com/NandhaKishorM/laya))**. Em vez de acionar um LLM grande para decisões binárias (como checar se um comando de terminal é destrutivo ou se um arquivo fere uma regra de pasta), a proposta é que um cliente local via `POST /predict` (HTTP ou Unix Domain Socket) classifique a intenção, a rota escolhida e o score de risco na CPU com meta de latência abaixo de **25ms** a custo zero de tokens; se o daemon local passar do timeout de **50ms**, o harness cairá automaticamente para as heurísticas em Tree-sitter WASM sem travar o terminal.
+Como próximo passo de roadmap (**Issue #31**, ainda em desenvolvimento e não mesclado na CLI atual), estamos projetando um **Fast-Gate de Sistema 1** integrado a encoders locais leves baseados em **[Jev](https://typesafe.ai/) / ModernBERT / Laya ([`NandhaKishorM/laya`](https://github.com/NandhaKishorM/laya))**. Em vez de acionar um LLM grande para decisões binárias (como checar se um comando de terminal é destrutivo ou se um arquivo fere uma regra de pasta), a proposta é que um cliente local via `POST /predict` (HTTP ou Unix Domain Socket) classifique a intenção, a rota escolhida e o score de risco na CPU com meta de latência abaixo de **25ms** a custo zero de tokens; se o daemon local passar do timeout de **50ms**, o harness cairá automaticamente para as heurísticas em Tree-sitter WASM sem travar o terminal.
 
 ---
 
@@ -276,6 +276,6 @@ Quando você rodou o `baba scan` e o `baba wrap --include-tests --dry-run` no se
 **Projetos e Ecossistema Citados no Artigo:**
 - **Oráculo de Maturidade (Camada 1):** [`paladini/harness-score`](https://github.com/paladini/harness-score)
 - **Grafo Semântico de Código via MCP (Camada 2):** [`DeusData/codebase-memory-mcp`](https://github.com/DeusData/codebase-memory-mcp)
-- **System-1 Fast-Gate / ModernBERT (Issue #31):** [`NandhaKishorM/laya`](https://github.com/NandhaKishorM/laya)
+- **System-1 Fast-Gate / ModernBERT (Issue #31):** [Jev (TypeSafe AI)](https://typesafe.ai/) · [`NandhaKishorM/laya`](https://github.com/NandhaKishorM/laya)
 - **Execution Harness Autônomo (SDD):** [Ouroboros Engine — LeonelLabs](https://ouroboros.leonellabshq.dev)
 
