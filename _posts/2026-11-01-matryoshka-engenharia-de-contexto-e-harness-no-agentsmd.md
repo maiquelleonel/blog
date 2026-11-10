@@ -12,6 +12,7 @@ tags:
 - Software Architecture
 - Open Source
 - Compilers
+permalink: /matryoshka-engenharia-de-contexto-e-harness-no-agentsmd/
 subtitle: Agente autônomo sem cerca determinística é estagiário com credencial de
   root e sem code review.
 description: 'Como cortar custos de Prompt Caching e governar o AGENTS.md no Claude
